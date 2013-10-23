@@ -79,7 +79,8 @@ def __main__():
     if errors != None:
         sys.stdout.write("Errors: %s\n" % errors)
     cmd = []
-    cmd.append('/home/mukarram/Downloads/BEASTv1.8.0/bin/beast') # changing from 'beast' to include the path of beast
+    #cmd.append('/home/mukarram/Downloads/BEASTv1.8.0/bin/beast') # changing from 'beast' to include the path of beast
+	cmd.append('beast')
     if strict == True:
         cmd.append('-strict')
     thread_opt = "-threads %d" % threads

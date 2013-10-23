@@ -5,9 +5,9 @@
     ## Required parameters 
     ## Program name and threads are hard-coded as they are dependent on the binary and threads are specified in the Galaxy's tool configuration
     ## binary is hard-coded to the pthreads enabled raxml executable
-    --binary "/home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3" <!-- raxmlHPC-PTHREADS-SSE3 -->
-    ## (-T)
-    --threads 4
+    --binary "raxmlHPC-SSE3" <!-- /home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3-->
+  <!--  ## (-T)
+    - -threads 4 -->
     ## (-s)
     --source $infile
     ## (-m)
