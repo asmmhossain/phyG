@@ -1,0 +1,35 @@
+<tool id="mafft_aln" name="MAFFT" version="7.027b">
+	<description>Multiple sequence alignment using MAFFT</description>
+	<command interpreter="bash">
+	mafft.sh "$input" "$output"
+	
+	#if ($outcontrol.alntype=="fftns2")
+		"fftns2"
+    #end if
+	
+	</command>
+		<inputs>
+			<page>
+				<param format="fasta" name="input" type="data" label="Sequence file"/>
+				<param name="outname" label="Name for output file (file name will be *.fas)" type="text" size="50" value="output" />
+			</page>
+		</inputs>
+		<outputs>
+			<data format="fasta" name="output"  label="${outname}_mafft.fas"/>
+		</outputs>
+
+		<tests>
+			<test>
+				<param name="input" value="1.seq1.fas"/>
+				<output name="out_file1" file="out.fas"/>
+			</test>
+		</tests>
+	<help>
+		This tool Produces a multiple sequence alignment using MAFFT program.
+	</help>
+</tool>
+
+**Note**
+MAFFT is a multiple sequence alignment program for unix-like operating systems. It offers a range of multiple alignment methods.
+
+
