@@ -5,7 +5,7 @@
     ## Required parameters 
     ## Program name and threads are hard-coded as they are dependent on the binary and threads are specified in the Galaxy's tool configuration
     ## binary is hard-coded to the pthreads enabled raxml executable
-    --binary "raxmlHPC-SSE3" <!-- /home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3-->
+    --binary "/home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3" <!-- raxmlHPC-SSE3 -->
   <!--  ## (-T)
     - -threads 4 -->
     ## (-s)
@@ -191,7 +191,7 @@
         </param>
         <when value="nucleotide">
     ## Nucleotide substitution models
-            <param name="base_model" type="select" label="Substitution Model (-m)">
+           F <param name="base_model" type="select" label="Substitution Model (-m)">
                 <option value="GTRCAT">GTRCAT</option> 
                 <option value="GTRCATI">GTRCATI</option> 
                 <option value="GTRGAMMA" select="true">GTRGAMMA</option>

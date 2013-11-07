@@ -1,0 +1,63 @@
+<tool id="fasttree" name="FastTree" version="2.1.7">
+	<description>Approximately-maximum-likelihood phylogenetic trees from nucleotide or protein sequence alignments</description>
+	<command interpreter="bash">
+	FastTree.sh
+	
+	#if ($seqtype.alntype=="aa")
+		"$aain" "$output"
+	#end if
+	
+	#if ($seqtype.alntype=="nt")
+		"-nt" "$ntin" "$output" 
+    #end if 
+
+<!--	#if str ($seqtype.pseudo) == "true":
+        -nt -pseudo "$ntin" "$output" 
+    #end if
+
+	#if str ($seqtype.gtr) == "true":
+        "-nt" "-gtr" "$ntin" "$output" 
+    #end if
+-->	
+	</command>
+
+		<inputs>
+			<page>
+				<conditional name="seqtype">
+      				<param name="alntype" type="select" label="Type of alignment">
+        				<option value="aa" selected="True">Protein alignment</option>
+        				<option value="nt">Nucleotide alignment</option>	 
+      				</param>
+      				<when value="aa">
+						<param format="fasta" name="aain" type="data" label="Protein sequence alignment file"/>
+					</when>
+      				<when value="nt">
+						<param foramt="fasta" name="ntin" type="data" label="Nucleotide sequence alignment file"/>
+						## (-pseudo)			            
+<!--					<param name="pseudo" type="boolean" checked="False" truevalue="true" falsevalue="false" display="checkboxes" label="Use pseudocounts (-pseudo)" />
+						<param name="gtr" type="boolean" checked="False" truevalue="true" falsevalue="false" display="checkboxes" label="Use GTR model (-gtr)" /> -->
+
+      				</when>
+    			</conditional>
+				<param name="outname" label="Name for output file (file name will be *_FastTree.tree)" type="text" size="50" value="output" />
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="fasta" name="output"  label="${outname}_FastTree.tree"/>
+		</outputs>
+
+		<tests>
+			<test>
+				<param name="input" value="1.seq1.fas"/>
+				<output name="out_file1" file="out.tree"/>
+			</test>
+		</tests>
+	<help>
+
+**Note**
+
+
+	</help>
+</tool>
