@@ -1,0 +1,5 @@
+repo: ae898a17920b62e1aab2d6c181131062758c1535
+node: a477486bf18eafdd14dd7ba1e91e17f1b05e8121
+branch: stable
+latesttag: release_2013.08.12
+latesttagdistance: 12
