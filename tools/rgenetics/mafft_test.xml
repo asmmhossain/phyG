@@ -1,34 +1,63 @@
 <tool id="mafft_aln" name="MAFFT" version="7.027b">
 	<description>Multiple sequence alignment using MAFFT</description>
 	<command interpreter="bash">
-	mafft.sh 
+	mafft.sh "$input" "$output"
 	
-	#if ($alnform.alntype=="deNovo")
-		"$seqin" "$output"
-	#end if
-	
-	#if ($alnform.alntype=="addfragments")
-		"--addfragments" "$fragin" "$alin" "$output" 
+	#if ($outcontrol.alntype=="fftns2")
+		"fftns2"
     #end if
-	
+	#if ($outcontrol.alntype=="linsi")
+		"linsi"
+    #end if
+	#if ($outcontrol.alntype=="ginsi")
+		"ginsi"
+    #end if
+	#if ($outcontrol.alntype=="einsi")
+		"einsi"
+    #end if
+	#if ($outcontrol.alntype=="fftnsi")
+		"fftnsi"
+    #end if
+	#if ($outcontrol.alntype=="fftns")
+		"fftns"
+    #end if
+	#if ($outcontrol.alntype=="nwnsi")
+		"nwnsi"
+    #end if
+	#if ($outcontrol.alntype=="nwns")
+		"nwns"
+    #end if
+	#if ($outcontrol.alntype=="profile")
+		"profile"
+    #end if  
+
 	</command>
 		<inputs>
 			<page>
-				
-				<conditional name="alnform">
-      				<param name="alntype" type="select" label="MAFFT alignment algorithm">
-        				<option value="deNovo" selected="True">Create new alignment</option>
-        				<option value="addfragments">Add sequence/fragment to alignment</option>	 
-      				</param>
-      				<when value="deNovo">
-						<param format="fasta" name="seqin" type="data" label="Sequence file"/>
-					</when>
-      				<when value="addfragments">
-						<param foramt="fasta" name="fragin" type="data" label="Fragment sequence file"/>
-						<param format="fasta" name="alnin" type="data" label="Reference alignment file"/>
-      				</when>
-    			</conditional>
+				<param format="fasta" name="input" type="data" label="Sequence file"/>
 				<param name="outname" label="Name for output file (file name will be *.fas)" type="text" size="50" value="output" />
+				<conditional name="outcontrol">
+      			<param name="alntype" type="select" label="MAFFT alignment algorithm">
+        			<option value="fftns2" selected="True">FFT-NS-2 (default)</option>
+        			<option value="linsi">L-INS-i</option>
+        			<option value="ginsi">G-INS-i</option>
+        			<option value="einsi">E-INS-i</option>
+        			<option value="fftnsi">FFT-NS-i</option>
+        			<option value="fftns">FFT-NS-2</option>
+        			<option value="nwnsi">NW-NS-i</option>
+        			<option value="nwns">NW-NS-2</option>
+        			<option value="profile">MAFFT profile alignment</option> 
+      			</param>
+      			<when value="linsi" />
+      			<when value="ginsi" />
+      			<when value="einsi" />
+      			<when value="fftsi" />
+      			<when value="fftns" />
+      			<when value="nwnsi" />
+      			<when value="nwns" />
+      			<when value="profile">
+       			</when>
+    		</conditional>
 
 			
 			</page>

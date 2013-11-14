@@ -1,0 +1,68 @@
+
+
+This is RAxML version 7.4.3 released by Alexandros Stamatakis on March 8 2013.
+
+With greatly appreciated code contributions by:
+Andre Aberer (HITS)
+Simon Berger (HITS)
+Nick Pattengale (Sandia)
+Wayne Pfeiffer (SDSC)
+Akifumi S. Tanabe (NRIFS)
+
+
+Alignment has 195 distinct alignment patterns
+
+Proportion of gaps and completely undetermined characters in this alignment: 5.17%
+
+RAxML rapid hill-climbing mode
+
+Using 1 distinct models/data partitions with joint branch length optimization
+
+
+Executing 1 inferences on the original alignment using 1 distinct randomized MP trees
+
+All rax_free model parameters will be estimated by RAxML
+GAMMA model of rate heteorgeneity, ML estimate of alpha-parameter
+
+GAMMA Model parameters will be estimated up to an accuracy of 0.1000000000 Log Likelihood units
+
+Partition: 0
+Alignment Patterns: 195
+Name: No Name Provided
+DataType: AA
+Substitution Matrix: WAG
+Using empirical base frequencies
+
+
+
+
+RAxML was called as follows:
+
+/home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3 -s /home/mukarram/Downloads/galaxy-galaxy-dist-a477486bf18e/database/files/000/dataset_267.dat -n galaxy -m PROTGAMMAWAGF -p 1234567890 
+
+
+Partition: 0 with name: No Name Provided
+Base frequencies: 0.089 0.051 0.055 0.047 0.013 0.030 0.063 0.071 0.026 0.049 0.099 0.051 0.031 0.028 0.060 0.075 0.040 0.017 0.023 0.083 
+
+Inference[0]: Time 2.759563 GAMMA-based likelihood -2466.270751, best rearrangement setting 5
+alpha[0]: 3.372828 
+
+
+Conducting final model optimizations on all 1 trees under GAMMA-based models ....
+
+Inference[0] final GAMMA-based Likelihood: -2466.270676 tree written to file /home/mukarram/Downloads/galaxy-galaxy-dist-a477486bf18e/database/job_working_directory/000/134/RAxML_result.galaxy
+
+
+Starting final GAMMA-based thorough Optimization on tree 0 likelihood -2466.270676 .... 
+
+Final GAMMA-based Score of best tree -2466.270676
+
+Program execution info written to /home/mukarram/Downloads/galaxy-galaxy-dist-a477486bf18e/database/job_working_directory/000/134/RAxML_info.galaxy
+Best-scoring ML tree written to: /home/mukarram/Downloads/galaxy-galaxy-dist-a477486bf18e/database/job_working_directory/000/134/RAxML_bestTree.galaxy
+
+Overall execution time: 3.545360 secs or 0.000985 hours or 0.000041 days
+
+
+OM: CLI options DEBUG START:
+<Values at 0x899894c: {'bootseed': None, 'groupingfile': None, 'posterior_bootstopping_analysis': None, 'print_branch_lengths': None, 'starting_tree': None, 'model_opt_precision': None, 'weightfile': None, 'use_median_approximation': None, 'majority_rule_consensus': None, 'excludefile': None, 'save_memory_gappy_alignments': None, 'binary': '/home/mukarram/Downloads/standard-RAxML-master/raxmlHPC-SSE3', 'numofcats': None, 'multistate_sub_model': None, 'multiple_model': None, 'search_complete_random_tree': None, 'source': '/home/mukarram/Downloads/galaxy-galaxy-dist-a477486bf18e/database/files/000/dataset_267.dat', 'outgroup_name': None, 'estimate_individual_branch_lengths': None, 'ml_search_convergence': None, 'file_multiple_trees': None, 'rapid_bootstrap_random_seed': None, 'random_seed': 1234567890, 'disable_undetermined_seq_check': None, 'save_memory_cat_model': None, 'enable_evol_heuristics': None, 'aa_empirical_freq': True, 'sliding_window_size': None, 'external_protein_model': None, 'search_algorithm': None, 'constraint_file': None, 'secondary_structure_model': None, 'number_of_runs': None, 'name': None, 'initial_rearrangement_setting': None, 'secondary_structure_file': None, 'model_type': 'aminoacid', 'aa_search_matrix': 'WAG', 'disable_rate_heterogeneity': None, 'base_model': 'PROTGAMMA', 'parsimony_starting_tree_only': None, 'number_of_runs_bootstop': None, 'bin_model_parameter_file': None}>
+OM: CLI options DEBUG END
