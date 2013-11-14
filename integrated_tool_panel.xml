@@ -9,6 +9,7 @@
         <tool id="beast" />
         <tool id="Garli" />
         <tool id="raxml" />
+        <tool id="fasttree" />
     </section>
     <section id="EncodeTools" name="ENCODE Tools" version="">
     </section>

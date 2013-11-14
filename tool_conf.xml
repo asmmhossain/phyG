@@ -43,8 +43,9 @@
 <section name="Phylogenetics" id="phy">
     <tool file="phylogenetics/beast/beast.xml" />	
     <tool file="phylogenetics/garli/garli.xml" />	
-    <tool file="phylogenetics/raxml/raxml.xml" />	
-	<tool file="phylogenetics/FastTree/FastTree.xml" />	
+    <tool file="phylogenetics/raxml/raxml.xml" />
+    <tool file="phylogenetics/FastTree/FastTree.xml" />		
+	
   </section>
 
 
