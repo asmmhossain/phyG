@@ -45,8 +45,10 @@
     <tool file="phylogenetics/garli/garli.xml" />	
     <tool file="phylogenetics/raxml/raxml.xml" />
     <tool file="phylogenetics/FastTree/FastTree.xml" />		
+    <tool file="phylogenetics/jModelTest/jModelTest.xml" />		
+
 	
-  </section>
+</section>
 
 
 </toolbox>
