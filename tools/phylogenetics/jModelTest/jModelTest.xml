@@ -165,6 +165,19 @@
 
 **Note**
 
+jModelTest is a tool to carry out statistical selection of best-fit models of nucleotide substitution. 
 
+It implements five different model selection strategies: hierarchical and dynamical likelihood ratio tests (hLRT and dLRT), Akaike and Bayesian information criteria (AIC and BIC), and a decision theory method (DT).
+
+jModelTest 2 includes High Performance Computing (HPC) capabilities and additional features like new strategies for tree optimization, model-averaged phylogenetic trees (both topology and branch lenght), heuristic filtering and automatic logging of user activity.
+
+----
+
+**Attribution**
+
+To download jModelTest, learn about all the different options and to access its documentation visit jModelTest_
+
+.. _jModelTest: https://code.google.com/p/jmodeltest2/ 
+	
 	</help>
 </tool>
