@@ -1,0 +1,83 @@
+<tool id="ninja" name="NINJA" version="1.2.1">
+	<description>NINJA is software for inferring large-scale neighbor-joining phylogenies.</description>
+	<command interpreter="python"> ninja.py -l $log
+
+	#if ($intype.in=="fasta")
+		--in_type "a" -i $input1
+    #end if
+
+	#if ($intype.in=="distance")
+		--in_type "d" -i $input2
+    #end if
+
+	#if ($outtype.out=="tree")
+		--out_type "t" -o $output
+    #end if
+
+	#if ($outtype.out=="dis")
+		--out_type "d" -o $output
+    #end if
+
+
+
+	</command>
+
+		<inputs>
+			<page>
+
+				<conditional name="intype">
+     				<param name="in" type="select" label="Type of input">
+        				<option value="fasta" selected="True">FASTA alignment</option>
+        				<option value="distance">Phylip formatted distance matrix</option>        				
+      				</param>
+      				<when value="fasta">
+						<param format="fasta" name="input1" type="data" label="Input alignment file"/>
+					</when>
+      				<when value="distance">
+						<param format="txt" name="input2" type="data" label="Input distance matrix file"/>
+       				</when>
+    			</conditional>
+
+
+				<conditional name="outtype">
+     				<param name="out" type="select" label="Type of output">
+        				<option value="tree" selected="True">Newick tree</option>
+        				<option value="dis">Phylip formatted distance matrix</option>        				
+      				</param>
+      				<when value="tree"/>
+      				<when value="dis">
+       				</when>
+    			</conditional>
+    			<param name="outname" label="Name for output file" type="text" size="50" value="output" />
+
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="newick" name="output"  label="${outname}_ninja.${outtype.out}"> 
+				<change_format>
+					<when input="outtype.out" value="distance" format="distance"/>
+				</change_format>
+			</data>
+			<data format="txt" name="log"  label="${outname}_ninja.log"/> 
+
+
+		</outputs>
+			
+	<help>
+
+**Note**
+
+NINJA is software for inferring large-scale neighbor-joining phylogenies.
+
+----
+
+**Attribution**
+
+To download NINJA, learn about all the different command line options and to access its documentation visit NINJA_
+
+.. _NINJA: http://nimbletwist.com/software/ninja/ 
+
+	</help>
+</tool>
