@@ -1,0 +1,156 @@
+<tool id="alignSequences" name="MACSE: Align coding sequences" version="1.0.0.i5">
+	<description>Align coding sequences using AA translation</description>
+	<command interpreter="python"> alignSequences.py -l $log -i $input -o $output
+
+	#if ($gctype.gc=="sc")
+		-g "1"
+    #end if
+	#if ($gctype.gc=="vmc")
+		-g "2"
+    #end if
+	#if ($gctype.gc=="ymc")
+		-g "3"
+    #end if
+	#if ($gctype.gc=="mpcmcmsc")
+		-g "4"
+    #end if
+	#if ($gctype.gc=="imc")
+		-g "5"
+    #end if
+	#if ($gctype.gc=="cdhnc")
+		-g "6"
+    #end if
+	#if ($gctype.gc=="efmc")
+		-g "9"
+    #end if
+	#if ($gctype.gc=="enc")
+		-g "10"
+    #end if
+	#if ($gctype.gc=="bappc")
+		-g "11"
+    #end if
+	#if ($gctype.gc=="aync")
+		-g "12"
+    #end if
+	#if ($gctype.gc=="amc")
+		-g "13"
+    #end if
+	#if ($gctype.gc=="afmc")
+		-g "14"
+    #end if
+	#if ($gctype.gc=="bnc")
+		-g "15"
+    #end if
+	#if ($gctype.gc=="cmc")
+		-g "16"
+    #end if
+	#if ($gctype.gc=="tmc")
+		-g "21"
+    #end if
+	#if ($gctype.gc=="somc")
+		-g "22"
+    #end if
+	#if ($gctype.gc=="thmc")
+		-g "23"
+    #end if
+<!--	#if ($gctype.gc=="other")
+		-g "1" -f $list
+    #end if
+-->
+	#if ($outtype.out=="nt")
+		-n "out_NT"
+    #end if
+	#if ($outtype.out=="aa")
+		-n "out_AA"
+    #end if
+
+
+	</command>
+		<inputs>
+			<page>
+				<param format="fasta" name="input" type="data" label="Input sequence file"/>
+
+				<conditional name="gctype">
+     				<param name="gc" type="select" label="Genetic code">
+        				<option value="sc" selected="True">Standard Code</option>
+        				<option value="vmc">Vertebrate Mitochondrial Code </option>        				
+        				<option value="ymc">Yeast Mitochondrial Code </option>        				
+        				<option value="mpcmcmsc">Mold Protozoan and Coelenterate Mitochondrial Code and the Mycoplasma Spiroplasma Code </option>
+        				<option value="imc">Invertebrate Mitochondrial Code </option>        				
+        				<option value="cdhnc">Ciliate Dasycladacean and Hexamita Nuclear Code</option>        				
+        				<option value="efmc">Echinoderm and Flatworm Mitochondrial Code </option>        				
+        				<option value="enc">Euplotid Nuclear Code </option>        				
+        				<option value="bappc">Bacterial Archaeal and Plant Plastid Code</option>        				
+        				<option value="aync">Alternative Yeast Nuclear Code </option>        				
+        				<option value="amc">Ascidian Mitochondrial Code </option>        				
+        				<option value="afmc">Alternative Flatworm Mitochondrial Code </option>        				
+        				<option value="bnc">Blepharisma Nuclear Code </option>        				
+        				<option value="cmc">Chlorophycean Mitochondrial Code </option>        				
+        				<option value="tmc">Trematode Mitochondrial Code </option>        				
+        				<option value="somc">Scenedesmus Obliquus Mitochondrial Code </option>        				
+        				<option value="thmc">Thraustochytrium Mitochondrial Code </option> 
+   <!--     				<option value="other">List of genetic code for each sequence </option> -->
+
+      				</param>
+     
+	 				<when value="sc"/>
+      				<when value="vmc"/>
+      				<when value="ymc"/>
+      				<when value="mpcmcmsc"/>
+      				<when value="imc"/>
+      				<when value="cdhnc"/>
+      				<when value="efmc"/>
+      				<when value="enc"/>
+      				<when value="bappc"/>
+      				<when value="aync"/>
+      				<when value="amc"/>
+      				<when value="afmc"/>
+      				<when value="bnc"/>
+      				<when value="cmc"/>
+      				<when value="tmc"/>
+      				<when value="somc"/>
+      				<when value="thmc">
+      <!--				<when value="other">
+			 			<param format="txt" name="list" type="data" label="Genetic code list file"/> -->
+     				</when>
+
+    			</conditional>
+
+				<conditional name="outtype">
+     				<param name="out" type="select" label="Type of output">
+        				<option value="nt" selected="True">Nucleotide alignment</option>
+        				<option value="aa">Amino acid alignment </option>        				
+					</param>
+      				<when value="nt"/>
+      				<when value="aa">
+       				</when>
+				</conditional>				
+
+				<param name="outname" label="Pairwise distance output file name" type="text" size="50" value="output" />
+
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="fasta" name="output"  label="${outname}_macse.fasta"/> 
+			<data format="txt" name="log"  label="${outname}_macse.log"/> 
+
+		</outputs>
+			
+	<help>
+
+**Note**
+
+This is a simple program meant to compute pairwise distances between aligned nucleotide sequences in sequential FASTA format using TN93.
+
+----
+
+**Attribution**
+
+The program is written by Sergei Pond and is available from his GitHub page TN93_
+
+.. _TN93: https://github.com/spond/TN93 
+
+	</help>
+</tool>

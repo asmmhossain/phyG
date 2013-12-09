@@ -56,4 +56,9 @@
 </section>
 
 
+<section name="MACSE" id="macse">
+    <tool file="MACSE/alignSequences.xml" />	
+</section>
+
+
 </toolbox>
