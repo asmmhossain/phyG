@@ -60,5 +60,9 @@
     <tool file="MACSE/alignSequences.xml" />	
 </section>
 
+<section name="Sequence processing" id="seqproc">
+    <tool file="sequenceProcessing/trimal/trimal.xml" />	
+</section>
+
 
 </toolbox>

@@ -1,0 +1,63 @@
+<tool id="trimal" name="TrimAl" version="1.2">
+	<description>TrimAl is a program to trim alignment</description>
+	<command interpreter="python"> trimal.py -i $input -o $output --htmlout $htmlout
+
+	#if ($trimtype.trim=="strictplus")
+		-m "1"
+    #end if
+
+	#if ($trimtype.trim=="automated1")
+		-m "2"
+    #end if
+
+	#if ($trimtype.trim=="strict")
+		-m "3"
+    #end if
+
+
+
+	</command>
+
+		<inputs>
+			<page>
+				<param format="fasta" name="input" type="data" label="Input alignment file"/>
+    			<param name="outname" label="Output file name" type="text" size="50" value="output" />
+
+				<conditional name="trimtype">
+     				<param name="trim" type="select" label="Reason for trimming">
+        				<option value="strictplus" selected="True">Reconstruct Neighbor Joining tree</option>
+        				<option value="automated1">Reconstruct Maximum Likelihood tree</option>
+        				<option value="strict">Remove unreliable columns</option>
+        				
+      				</param>
+      				<when value="strictplus"/>
+      				<when value="automated1"/>
+      				<when value="strict">
+       				</when>
+				</conditional>
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="fasta" name="output"  label="${outname}_trimal.fas"/> 
+			<data format="html" name="htmlout"  label="${outname}_trimal.html"/> 
+
+		</outputs>
+			
+	<help>
+
+**Note**
+
+TrimAl is a tool for automatic trimming of sequence alignments. 
+
+----
+
+**Attribution**
+
+To download the program and to find all the documentations, please visit TrimAl_
+
+.. _TrimAl: http://trimal.cgenomics.org/ 
+
+	</help>
+</tool>
