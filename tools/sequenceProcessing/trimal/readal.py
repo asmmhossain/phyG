@@ -1,6 +1,6 @@
 """
-trimal.py
-Galaxy wrapper for automatic trimming of alignments using TrimAl version 1.4
+readal.py
+Galaxy wrapper for automatic conversion of alignments into different formats using ReadAl version 1.4 
 """
 
 
@@ -20,15 +20,7 @@ class Test:
         file_path = os.path.dirname(os.path.abspath(__file__)) 
         dir_path = file_path[:file_path.rfind("tools")]
 	   
-        cl.append('%sdependencies/trimal -in %s -out %s -keepheader -htmlout %s' % (dir_path,self.opts.input,self.opts.output,self.opts.htmlout))
-        
-        if self.opts.method=="1":
-            cl.append('-strictplus')
-        if self.opts.method=="2":
-            cl.append('-automated1')
-        if self.opts.method=="3":
-            cl.append('-strict')
-
+        cl.append('%sdependencies/readal -in %s -out %s -%s' % (dir_path,self.opts.input,self.opts.output,self.opts.format))
         
        # process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)
         process = subprocess.Popen(' '.join(cl), shell=True)
@@ -44,8 +36,7 @@ if __name__ == "__main__":
     op = optparse.OptionParser()
     op.add_option('-i', '--input', default=None,help='Input file')
     op.add_option('-o', '--output', default=None,help='Output file')
-    op.add_option('-m','--method', default=None, help="Method used for trimming")  
-    op.add_option('--htmlout', default=None, help="Summary output in HTML")  
+    op.add_option('-f','--format', default=None, help="Output format")  
 
        
     opts, args = op.parse_args()

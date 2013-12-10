@@ -1,4 +1,4 @@
-<tool id="trimal" name="TrimAl" version="1.2">
+<tool id="trimal" name="TrimAl" version="1.4">
 	<description>TrimAl is a program to trim alignment</description>
 	<command interpreter="python"> trimal.py -i $input -o $output --htmlout $htmlout
 

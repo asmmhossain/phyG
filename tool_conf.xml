@@ -62,6 +62,8 @@
 
 <section name="Sequence processing" id="seqproc">
     <tool file="sequenceProcessing/trimal/trimal.xml" />	
+    <tool file="sequenceProcessing/trimal/readal.xml" />	
+
 </section>
 
 
