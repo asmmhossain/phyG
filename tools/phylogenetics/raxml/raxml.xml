@@ -191,7 +191,7 @@
         </param>
         <when value="nucleotide">
     ## Nucleotide substitution models
-           F <param name="base_model" type="select" label="Substitution Model (-m)">
+            <param name="base_model" type="select" label="Substitution Model (-m)">
                 <option value="GTRCAT">GTRCAT</option> 
                 <option value="GTRCATI">GTRCATI</option> 
                 <option value="GTRGAMMA" select="true">GTRGAMMA</option>
@@ -452,10 +452,12 @@
             <filter>(selExtraOpts['rapid_bootstrap_random_seed'] == '' or selExtraOpts['bootseed'] == '') and (selExtraOpts['search_algorithm'] == 'a')</filter>
             <filter>(selExtraOpts['search_algorithm'] != 'b')</filter>
             <filter>(selExtraOpts['majority_rule_consensus'] == '')</filter>
+            <filter>(selExtraOpts['search_algorithm'] != 'v')</filter>
         </data>
         <data format="txt" name="bestTreeMultipleModel" from_work_dir="RAxML_bestTree.galaxy" label="Best-scoring ML Tree">
             <filter>(selExtraOpts['extraOptions'] == "full")</filter>
             <filter>(selExtraOpts['multiple_model'] != '')</filter>
+            <filter>(selExtraOpts['search_algorithm'] != 'v')</filter>
         </data>
         <data format="txt" name="bestTreeMultipleModelPartitions" from_work_dir="RAxML_bestTreePartitions.galaxy" label="Best-scoring ML Tree Partitions">
             <filter>(selExtraOpts['extraOptions'] == "full")</filter>
@@ -468,6 +470,7 @@
             <filter>(selExtraOpts['search_algorithm'] != 'a')</filter>
             <filter>(selExtraOpts['search_algorithm'] != 'b')</filter>
             <filter>(selExtraOpts['majority_rule_consensus'] == '') </filter>
+            <filter>(selExtraOpts['search_algorithm'] != 'v')</filter>
         </data>
         <data format="txt" name="result" from_work_dir="RAxML_result.galaxy" label="Result">
             <filter>(selExtraOpts['extraOptions'] == "full")</filter>
@@ -476,6 +479,7 @@
             <filter>selExtraOpts['search_algorithm'] != 'a'</filter>
             <filter>selExtraOpts['search_algorithm'] != 'b'</filter>
             <filter>(selExtraOpts['majority_rule_consensus'] == '') </filter>
+            <filter>(selExtraOpts['search_algorithm'] != 'v')</filter>
         </data>
         <data format="txt" name="resultMultipleModelPartitions" from_work_dir="RAxML_resultPartitions.galaxy" label="Result Partitions">
             <filter>(selExtraOpts['extraOptions'] == "full")</filter>
@@ -529,6 +533,31 @@
             <filter>selExtraOpts['search_algorithm'] == 'x' </filter>
             <filter>selExtraOpts['extraOptions'] == "full"</filter>
         </data>
+		<data format="txt" name="labelledTree" from_work_dir="RAxML_labelledTree.galaxy" label="Labelled Tree">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+		<data format="txt" name="originallabelledTree" from_work_dir="RAxML_originalLabelledTree.galaxy" label="Original Labelled Tree">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+		<data format="txt" name="classificationLikelihoodWeights" from_work_dir="RAxML_classificationLikelihoodWeights.galaxy" label="Classification Likelihood Weights">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+		<data format="txt" name="classification" from_work_dir="RAxML_classification.galaxy" label="Classification">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+		<data format="txt" name="entropy" from_work_dir="RAxML_entropy.galaxy" label="Entropy">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+		<data format="txt" name="portableTree" from_work_dir="RAxML_portableTree.galaxy.jplace" label="Portable Tree in jplace">
+            <filter>selExtraOpts['search_algorithm'] == 'v' </filter>
+            <filter>selExtraOpts['extraOptions'] == "full"</filter>
+        </data>
+
   </outputs>
   <tests>
       <test>
