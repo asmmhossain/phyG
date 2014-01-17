@@ -1,14 +1,14 @@
 <tool id="mafft_aln" name="MAFFT" version="7.027b">
 	<description>Multiple sequence alignment using MAFFT</description>
-	<command interpreter="bash">
-	mafft.sh 
+	<command interpreter="python">
+	mafft.py
 	
 	#if ($alnform.alntype=="deNovo")
-		"$seqin" "$output"
+		-i "$seqin" -o "$output" 
 	#end if
 	
 	#if ($alnform.alntype=="addfragments")
-		"--addfragments" "$fragin" "$alnin" "$output" 
+		-f "1" -q "$fragin" -i "$alnin" -o "$output" 
     #end if
 	
 	</command>

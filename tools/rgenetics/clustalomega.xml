@@ -1,7 +1,7 @@
 <tool id="clustalo_aln" name="Clustal Omega" version="1.1.0">
 	<description>Multiple sequence alignment using Clustal-Omega</description>
-	<command interpreter="bash">
-	clustalomega.sh "$input" "$output"
+	<command interpreter="python">
+	clustalomega.py -i "$input" -o "$output" -l "clustalo.log"
 	
 
 	</command>

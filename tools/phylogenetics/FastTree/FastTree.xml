@@ -1,14 +1,14 @@
 <tool id="fasttree" name="FastTree" version="2.1.7">
 	<description>Approximately-maximum-likelihood phylogenetic trees from nucleotide or protein sequence alignments</description>
-	<command interpreter="bash">
-	FastTree.sh
+	<command interpreter="python">
+	FastTree.py
 	
 	#if ($seqtype.alntype=="aa")
-		"$aain" "$output"
+		-i "$aain" -o "$output"
 	#end if
 	
 	#if ($seqtype.alntype=="nt")
-		"-nt" "$ntin" "$output" 
+		-f "1" -i "$ntin" -o "$output" 
     #end if 
 
 <!--	#if str ($seqtype.pseudo) == "true":
