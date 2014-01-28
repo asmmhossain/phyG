@@ -66,5 +66,9 @@
 
 </section>
 
+<section name="Phylogeny Porcessing" id="phyloproc">
+    <tool file="Newick_utils/newick_utils.xml" />	
+</section>
+
 
 </toolbox>
