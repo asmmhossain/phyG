@@ -70,6 +70,10 @@
     <tool file="Newick_utils/newick_utils.xml" />	
 </section>
 
+<section name="PAL2NAL" id="pal2nal">
+    <tool file="pal2nal/pal2nal.xml" />	
+</section>
+
 <section name="EMBOSS" id="emboss">
     <tool file="emboss_5/emboss_5/emboss_antigenic.xml" />	
     <tool file="emboss_5/emboss_5/emboss_backtranseq.xml" />	
