@@ -64,6 +64,7 @@
     <tool file="sequenceProcessing/trimal/trimal.xml" />	
     <tool file="sequenceProcessing/trimal/readal.xml" />	
 	<tool file="get_orfs_or_cdss/get_orfs_or_cdss.xml" />
+	<tool file="sequenceProcessing/dna2aa/dna2aa.xml" />
 </section>
 
 <section name="Phylogeny Porcessing" id="phyloproc">
