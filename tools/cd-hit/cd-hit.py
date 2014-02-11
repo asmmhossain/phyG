@@ -17,6 +17,9 @@ class Test:
     def run(self):
         tlf = open(self.opts.log,'w')
         cl = []
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
+
         thr = None
         try:
             thr = float(self.opts.sim)
@@ -24,7 +27,7 @@ class Test:
             thr = 0.90
 
         if self.opts.seqType == "dna":
-            cl.append('/home/mukarram/apps/bin/cd-hit-est')
+            cl.append('%sdependencies/cd-hit-v4.5.4-2011-03-07/cd-hit-est' % (dir_path) )
             if thr > 1.0:
                 cl.append('-c 1.0 -n 10')
             elif thr > 0.90:
@@ -42,7 +45,7 @@ class Test:
 
 
         elif self.opts.seqType == "protein":
-            cl.append('/home/mukarram/apps/bin/cd-hit')
+            cl.append('%sdependencies/cd-hit-v4.5.4-2011-03-07/cd-hit' % (dir_path))
             if thr > 1.0:
                 cl.append('-c 1.0 -n 5')
             elif thr > 0.70:

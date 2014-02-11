@@ -16,7 +16,11 @@ class Test:
 
     def run(self):
         tlf = open(self.opts.output,'w')
-        cl = ['java -jar /home/mukarram/Downloads/jModelTest-2.1.4/jModelTest.jar -d %s -s %s' % (self.opts.input,self.opts.nss)]
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
+
+        cl = ['java -jar %sdependencies/jModelTest-2.1.4/jModelTest.jar -d %s -s %s' % (dir_path,self.opts.input,self.opts.nss)]
     #    cl = ['java -jar jModelTest.jar -d %s -s %s' % (self.opts.input,self.opts.nss)]
 
         if self.opts.baseFreq == "1":

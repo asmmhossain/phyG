@@ -17,8 +17,11 @@ class Test:
     def run(self):
         tlf = open(self.opts.log,'w')
         cl = []
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
             
-        cl.append('~/apps/bin/tn93 -t %s -o %s %s' % (self.opts.threshold,self.opts.output,self.opts.input))
+        cl.append('%sdependencies/TN93-master/tn93 -t %s -o %s %s' % (dir_path,self.opts.threshold,self.opts.output,self.opts.input))
 
         
         process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)

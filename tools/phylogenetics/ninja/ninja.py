@@ -17,8 +17,11 @@ class Test:
     def run(self):
         tlf = open(self.opts.log,'w')
         cl = []
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
             
-        cl.append('~/apps/bin/ninja --in_type %s -i %s --out_type %s -o %s' % (self.opts.in_type,self.opts.input,self.opts.out_type,self.opts.output))
+        cl.append('%sdependencies/ninja/ninja --in_type %s -i %s --out_type %s -o %s' % (dir_path,self.opts.in_type,self.opts.input,self.opts.out_type,self.opts.output))
 
         
         process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)

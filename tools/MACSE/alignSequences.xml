@@ -142,15 +142,20 @@
 
 **Note**
 
-This is a simple program meant to compute pairwise distances between aligned nucleotide sequences in sequential FASTA format using TN93.
+MACSE is a program to align coding sequences using AA translation. 
+
+Source code of MACSE can be downloaded, using the svn facilities of redmine with the following command line and "guest" as login and password: 
+
+	svn checkout http://kimura.univ-montp2.fr/svn/macse 
 
 ----
 
 **Attribution**
 
-The program is written by Sergei Pond and is available from his GitHub page TN93_
+The project web page of MACSE can be found here_  
 
-.. _TN93: https://github.com/spond/TN93 
+
+.. _here: http://kimura.univ-montp2.fr/redmine/projects/macse 
 
 	</help>
 </tool>

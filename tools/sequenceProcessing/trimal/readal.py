@@ -20,7 +20,7 @@ class Test:
         file_path = os.path.dirname(os.path.abspath(__file__)) 
         dir_path = file_path[:file_path.rfind("tools")]
 	   
-        cl.append('%sdependencies/readal -in %s -out %s -%s' % (dir_path,self.opts.input,self.opts.output,self.opts.format))
+        cl.append('%sdependencies//trimal-trimAl_1.4/source/readal -in %s -out %s -%s' % (dir_path,self.opts.input,self.opts.output,self.opts.format))
         
        # process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)
         process = subprocess.Popen(' '.join(cl), shell=True)

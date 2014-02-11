@@ -58,6 +58,16 @@
 
 **Note**
 
+FastTree infers approximately-maximum-likelihood phylogenetic trees from alignments of nucleotide or protein sequences. FastTree can handle alignments with up to a million of sequences in a reasonable amount of time and memory.
+
+----
+
+**Attribution**
+
+To download FastTree, learn about all the different options and to access its documentation visit FastTree_
+
+.. _FastTree: http://www.microbesonline.org/fasttree/ 
+
 
 	</help>
 </tool>

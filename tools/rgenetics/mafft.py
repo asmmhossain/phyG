@@ -16,11 +16,14 @@ class MAFFT:
 
     def run(self):
         tlf = open(self.opts.outlog,'w')
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
         
         if self.opts.addfrag == '0':
-            cl = ['mafft --auto --quiet %s > %s' % (self.iname,self.opts.output)]
+            cl = ['%sdependencies/mafft-7.027-without-extensions/core/mafft --auto --quiet %s > %s' % (dir_path,self.iname,self.opts.output)]
         if self.opts.addfrag == '1':
-            cl = ['mafft --auto --quiet --addfragments %s %s > %s' % (self.opts.fragfile,self.iname,self.opts.output)]
+            cl = ['%sdependencies/mafft-7.027-without-extensions/core/mafft --auto --quiet --addfragments %s %s > %s' % (dir_path,self.opts.fragfile,self.iname,self.opts.output)]
 
         process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)
         rval = process.wait()

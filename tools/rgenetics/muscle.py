@@ -16,7 +16,11 @@ class Muscle:
 
     def run(self):
         tlf = open(self.opts.outlog,'w')
-        cl = ['muscle -in %s -out %s' % (self.iname,self.opts.output)]
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
+
+        cl = ['%sdependencies/muscle3.8.31_i86linux32 -in %s -out %s' % (dir_path,self.iname,self.opts.output)]
         if self.opts.html:
             cl.append('-html')
         if self.opts.msf:

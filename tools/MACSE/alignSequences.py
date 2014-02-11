@@ -18,8 +18,11 @@ class Test:
     def run(self):
         tlf = open(self.opts.log,'w')
         cl = []
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
             
-        cl.append('java -jar -Xmx2000m /home/mukarram/Downloads/macse/jar_file/macse.jar -prog alignSequences -gc_def %s -%s %s -seq %s' % (self.opts.gc_def,self.opts.out_type,self.opts.output,self.opts.input))
+        cl.append('java -jar -Xmx2000m %sdependencies/macse/jar_file/macse.jar -prog alignSequences -gc_def %s -%s %s -seq %s' % (dir_path,self.opts.gc_def,self.opts.out_type,self.opts.output,self.opts.input))
 
         
         process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)

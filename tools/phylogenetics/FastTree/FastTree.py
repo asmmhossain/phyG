@@ -16,10 +16,14 @@ class FastTree:
 
     def run(self):
         tlf = open(self.opts.outlog,'w')
+
+        file_path = os.path.dirname(os.path.abspath(__file__)) 
+        dir_path = file_path[:file_path.rfind("tools")]
+
         if self.opts.nt == '0':
-            cl = ['FastTree -quiet -nopr %s > %s' % (self.iname,self.opts.output)]     
+            cl = ['%sdependencies/FastTree/FastTree -quiet -nopr %s > %s' % (dir_path,self.iname,self.opts.output)]     
         if self.opts.nt == '1':
-            cl = ['FastTree -quiet -nopr -nt %s > %s' % (self.iname,self.opts.output)]     
+            cl = ['%sdependencies/FastTree/FastTree -quiet -nopr -nt %s > %s' % (dir_path,self.iname,self.opts.output)]     
         
         process = subprocess.Popen(' '.join(cl), shell=True, stderr=tlf, stdout=tlf)
         rval = process.wait()

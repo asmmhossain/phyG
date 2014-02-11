@@ -20,7 +20,7 @@ class Test:
         file_path = os.path.dirname(os.path.abspath(__file__)) 
         dir_path = file_path[:file_path.rfind("tools")]
 	   
-        cl.append('%sdependencies/trimal -in %s -out %s -keepheader -htmlout %s' % (dir_path,self.opts.input,self.opts.output,self.opts.htmlout))
+        cl.append('%sdependencies//trimal-trimAl_1.4/source/trimal -in %s -out %s -keepheader -htmlout %s' % (dir_path,self.opts.input,self.opts.output,self.opts.htmlout))
         
         if self.opts.method=="1":
             cl.append('-strictplus')
