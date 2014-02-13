@@ -1,0 +1,16 @@
+# Robert C. Edgar Local homology recognition and distance
+# measures in linear time using compressed amino acid alphabet
+# Alphabets used for KMERS Estimating Evolutionary Distance
+#
+AA,A,C,D,E,Q,F,Y,G,H,I,V,K,R,L,M,N,P,S,T,W
+SE-B,A,C,D,EQ,FY,G,H,IV,KR,LM,N,P,ST,W
+SE-B,AST,C,DN,EQ,FY,G,HW,ILMV,KR,P
+SE-V,AST,C,DEN,FY,G,H,ILMV,KQR,P,W
+Li-A,AC,DE,FWY,G,HN,IV,KQR,LM,P,ST
+Li-B,AST,C,DEQ,FWY,G,HN,IV,KR,LM,P
+Solis-D,AM,C,DNS,EKQR,F,GP,HT,IV,LY,W
+Solis-G,AEFIKLMQRVW,C,D,G,H,N,P,S,T,Y
+Murphy,A,C,DENQ,FWY,G,H,ILMV,KR,P,ST
+SE-B,AST,C,DHN,EKQR,FWY,G,ILMV,P
+SE-B,AST,CP,DHNEKQR,FWY,G,ILMV
+Dayhoff,AGPST,C,DENQ,FWY,HKR,ILMV

@@ -49,6 +49,3 @@ if __name__ == "__main__":
     assert os.path.isfile(opts.input)
     c = Test(opts)
     c.run()
-    
-            
-

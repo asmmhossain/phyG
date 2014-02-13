@@ -38,6 +38,7 @@
 	<tool file="rgenetics/muscle.xml" />
 	<tool file="rgenetics/clustalomega.xml" />
 	<tool file="rgenetics/mafft.xml" />
+    <tool file="MACSE/alignSequences.xml" />	
   </section>
 
 <section name="Phylogenetics" id="phy">
@@ -55,26 +56,19 @@
     <tool file="cd-hit/cd-hit.xml" />	
 </section>
 
-
-<section name="MACSE" id="macse">
-    <tool file="MACSE/alignSequences.xml" />	
-</section>
-
 <section name="Sequence processing" id="seqproc">
     <tool file="sequenceProcessing/trimal/trimal.xml" />	
     <tool file="sequenceProcessing/trimal/readal.xml" />	
 	<tool file="get_orfs_or_cdss/get_orfs_or_cdss.xml" />
 	<tool file="sequenceProcessing/dna2aa/dna2aa.xml" />
+	<tool file="pal2nal/pal2nal.xml" />
 </section>
 
 <section name="Phylogeny Porcessing" id="phyloproc">
     <tool file="Newick_utils/newick_utils.xml" />	
 </section>
 
-<section name="PAL2NAL" id="pal2nal">
-    <tool file="pal2nal/pal2nal.xml" />	
-</section>
-
+    	
 <section name="EMBOSS" id="emboss">
     <tool file="emboss_5/emboss_5/emboss_antigenic.xml" />	
     <tool file="emboss_5/emboss_5/emboss_backtranseq.xml" />	

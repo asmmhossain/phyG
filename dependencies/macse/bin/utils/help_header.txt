@@ -1,0 +1,7 @@
+This is the release 0.8 of MACS_E, a multiple sequence alignment program dedicated to coding DNA sequences.
+MACS_E is able to handle some sequences errors and is thus especially adapted to align reads or EST together with more reliable sequences.
+The most basic use of MACS_E only require to precise an input fasta file containing the sequences to be aligned and an output file where the resulting alignment will be written:
+java -jar-MACS_E_v0.8.jar -i input.fasta -o output.fasta
+Note that since the 
+Other options are provided to precise the genetic code that must be used, the cost of introducing some frameshift within normal sequences or less reliable sequences (reads or pseudogene for instance) and so on.
+Further command line example are provided at the end of this help.
