@@ -1,9 +1,0 @@
-version v09b1
-major memory management improvement
-
-version v08b
-modify sequence reading to preserve space in sequence names
-
-version v08
-first release of MACSE
-
