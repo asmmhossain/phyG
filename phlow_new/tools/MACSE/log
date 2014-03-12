@@ -1,0 +1,15 @@
+	A	The_Standard_Code
+	B	The_Standard_Code
+	C 	The_Standard_Code
+Build draft alignment using greedy strategy based on UPGMA tree
+compute kmer dist 
+build UPGMA done 
+++start refining the alignment
+((seq_2,seq_3),seq_1)
+...-
+(seq_1)
+.
+Refine 2 cut : sum of pair========= 1 => 0.19999981
+total time:	43.0
+false
+/home/mukarram/Desktop/test_macse_NT.fasta

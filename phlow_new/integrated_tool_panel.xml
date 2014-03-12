@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+<toolbox>
+    <section id="getext" name="Get Data" version="">
+        <tool id="upload1" />
+    </section>
+    <section id="send" name="Send Data" version="">
+        <tool id="genomespace_exporter" />
+    </section>
+    <section id="liftOver" name="Lift-Over" version="">
+        <tool id="liftOver1" />
+    </section>
+    <section id="textutil" name="Text Manipulation" version="">
+    </section>
+    <section id="phy" name="Phylogenetics" version="">
+        <tool id="beast" />
+        <tool id="Garli" />
+        <tool id="raxml" />
+        <tool id="fasttree" />
+        <tool id="jmodeltest" />
+        <tool id="ninja" />
+        <tool id="tn93" />
+    </section>
+    <section id="cls" name="Clustering" version="">
+        <tool id="cdhit" />
+    </section>
+    <section id="seqproc" name="Sequence processing" version="">
+        <tool id="trimal" />
+        <tool id="readal" />
+        <tool id="get_orfs_or_cdss" />
+        <tool id="dna2aa" />
+        <tool id="pal2nal" />
+    </section>
+    <section id="phyloproc" name="Phylogeny Porcessing" version="">
+        <tool id="newick_utils" />
+    </section>
+    <section id="emboss" name="EMBOSS" version="">
+        <tool id="EMBOSS: antigenic1" />
+        <tool id="EMBOSS: backtranseq2" />
+        <tool id="EMBOSS: banana3" />
+        <tool id="EMBOSS: biosed4" />
+        <tool id="EMBOSS: btwisted5" />
+        <tool id="EMBOSS: cai6" />
+        <tool id="EMBOSS: cai_custom6" />
+        <tool id="EMBOSS: chaos7" />
+        <tool id="EMBOSS: charge8" />
+        <tool id="EMBOSS: checktrans9" />
+        <tool id="EMBOSS: cirdna11" />
+        <tool id="EMBOSS: codcmp12" />
+        <tool id="EMBOSS: coderet13" />
+        <tool id="EMBOSS: compseq14" />
+        <tool id="EMBOSS: cpgplot15" />
+        <tool id="EMBOSS: cpgreport16" />
+        <tool id="EMBOSS: cusp17" />
+        <tool id="EMBOSS: cutseq18" />
+        <tool id="EMBOSS: dan19" />
+        <tool id="EMBOSS: degapseq20" />
+        <tool id="EMBOSS: descseq21" />
+        <tool id="EMBOSS: diffseq22" />
+        <tool id="EMBOSS: digest23" />
+        <tool id="EMBOSS: dotmatcher24" />
+        <tool id="EMBOSS: dotpath25" />
+        <tool id="EMBOSS: dottup26" />
+        <tool id="EMBOSS: dreg27" />
+        <tool id="EMBOSS: einverted28" />
+        <tool id="EMBOSS: epestfind29" />
+        <tool id="EMBOSS: equicktandem31" />
+        <tool id="EMBOSS: est2genome32" />
+        <tool id="EMBOSS: etandem33" />
+        <tool id="EMBOSS: extractfeat34" />
+        <tool id="EMBOSS: extractseq35" />
+        <tool id="EMBOSS: freak36" />
+        <tool id="EMBOSS: fuzznuc37" />
+        <tool id="EMBOSS: fuzzpro38" />
+        <tool id="EMBOSS: fuzztran39" />
+        <tool id="EMBOSS: garnier40" />
+        <tool id="EMBOSS: geecee41" />
+        <tool id="EMBOSS: getorf42" />
+        <tool id="EMBOSS: helixturnhelix43" />
+        <tool id="EMBOSS: hmoment44" />
+        <tool id="EMBOSS: iep45" />
+        <tool id="EMBOSS: infoseq46" />
+        <tool id="EMBOSS: megamerger53" />
+        <tool id="EMBOSS: merger54" />
+        <tool id="EMBOSS: msbar55" />
+        <tool id="EMBOSS: needle56" />
+        <tool id="EMBOSS: newcpgreport57" />
+        <tool id="EMBOSS: newcpgseek58" />
+        <tool id="EMBOSS: newseq59" />
+        <tool id="EMBOSS: noreturn60" />
+        <tool id="EMBOSS: notseq61" />
+        <tool id="EMBOSS: nthseq62" />
+        <tool id="EMBOSS: octanol63" />
+        <tool id="EMBOSS: oddcomp64" />
+        <tool id="EMBOSS: palindrome65" />
+        <tool id="EMBOSS: pepwindow73" />
+        <tool id="EMBOSS: pepwindowall74" />
+        <tool id="EMBOSS: plotcon75" />
+        <tool id="EMBOSS: plotorf76" />
+        <tool id="EMBOSS: polydot77" />
+        <tool id="EMBOSS: preg78" />
+        <tool id="EMBOSS: prettyplot79" />
+        <tool id="EMBOSS: prettyseq80" />
+        <tool id="EMBOSS: primersearch81" />
+        <tool id="EMBOSS: revseq82" />
+        <tool id="EMBOSS: seqmatchall83" />
+        <tool id="EMBOSS: seqret84" />
+        <tool id="EMBOSS: showfeat85" />
+        <tool id="EMBOSS: shuffleseq87" />
+        <tool id="EMBOSS: sigcleave88" />
+        <tool id="EMBOSS: sirna89" />
+        <tool id="EMBOSS: sixpack90" />
+        <tool id="EMBOSS: skipseq91" />
+        <tool id="EMBOSS: splitter92" />
+        <tool id="EMBOSS: supermatcher95" />
+        <tool id="EMBOSS: syco96" />
+        <tool id="EMBOSS: tcode97" />
+        <tool id="EMBOSS: textsearch98" />
+        <tool id="EMBOSS: tmap99" />
+        <tool id="EMBOSS: tranalign100" />
+        <tool id="EMBOSS: transeq101" />
+        <tool id="EMBOSS: trimest102" />
+        <tool id="EMBOSS: trimseq103" />
+        <tool id="EMBOSS: twofeat104" />
+        <tool id="EMBOSS: union105" />
+        <tool id="EMBOSS: vectorstrip106" />
+        <tool id="EMBOSS: water107" />
+        <tool id="EMBOSS: wobble108" />
+        <tool id="EMBOSS: wordcount109" />
+        <tool id="EMBOSS: wordmatch110" />
+    </section>
+    <section id="filter" name="Filter and Sort" version="">
+    </section>
+    <section id="group" name="Join, Subtract and Group" version="">
+    </section>
+    <section id="convert" name="Convert Formats" version="">
+    </section>
+    <section id="features" name="Extract Features" version="">
+    </section>
+    <section id="fetchSeq" name="Fetch Sequences" version="">
+    </section>
+    <section id="fetchAlign" name="Fetch Alignments" version="">
+    </section>
+    <section id="scores" name="Get Genomic Scores" version="">
+    </section>
+    <section id="bxops" name="Operate on Genomic Intervals" version="">
+    </section>
+    <section id="stats" name="Statistics" version="">
+    </section>
+    <section id="plots" name="Graph/Display Data" version="">
+    </section>
+    <section id="regVar" name="Regional Variation" version="">
+    </section>
+    <section id="multReg" name="Multiple regression" version="">
+    </section>
+    <section id="multVar" name="Multivariate Analysis" version="">
+    </section>
+    <section id="hyphy" name="Evolution" version="">
+    </section>
+    <section id="motifs" name="Motif Tools" version="">
+    </section>
+    <section id="clustal" name="Multiple Alignments" version="">
+        <tool id="clustalw" />
+        <tool id="muscle_aln" />
+        <tool id="clustalo_aln" />
+        <tool id="mafft_aln" />
+        <tool id="alignSequences" />
+    </section>
+    <section id="fasta_manipulation" name="FASTA manipulation" version="">
+    </section>
+    <section id="NGS_QC" name="NGS: QC and manipulation" version="">
+    </section>
+    <section id="solexa_tools" name="NGS: Mapping" version="">
+    </section>
+    <section id="ngs-rna-tools" name="NGS: RNA Analysis" version="">
+    </section>
+    <section id="samtools" name="NGS: SAM Tools" version="">
+    </section>
+    <section id="gatk" name="NGS: GATK Tools (beta)" version="">
+    </section>
+    <section id="ngs-simulation" name="NGS: Simulation" version="">
+    </section>
+    <section id="hgv" name="Phenotype Association" version="">
+    </section>
+</toolbox>

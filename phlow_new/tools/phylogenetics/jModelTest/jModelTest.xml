@@ -1,0 +1,183 @@
+<tool id="jmodeltest" name="jModelTest" version="2.1.4">
+	<description>High performance Java tool for nucleotide substitution model selection</description>
+	<command interpreter="python">
+	jModelTest.py -d $input -q $output -f $baseFreq -i $prInSites --AIC $akaike --AICc $cakaike --BIC $bayesian 
+	--DT $dt -p $paraImp -v $avg -w $paup --dLRT $dlrt 
+
+	#if ($numsubscheme.numSub=="three")
+		"-s 3"
+    #end if
+	#if ($numsubscheme.numSub=="five")
+		"-s 5"
+    #end if
+	#if ($numsubscheme.numSub=="seven")
+		"-s 7"
+    #end if
+	#if ($numsubscheme.numSub=="eleven")
+		"-s 11"
+    #end if
+	#if ($numsubscheme.numSub=="twohundredthree")
+		"-s 203"
+    #end if
+
+	#if ($gammacat.ngcat=="yes")
+		#if ($gammacat.cat!="")
+			-g $gammacat.cat
+		#end if
+		#if ($gammacat.cat=="")
+			-g 0
+		#end if
+    #end if
+	#if ($gammacat.ngcat=="no")
+		-g 0
+	#end if
+
+	#if ($baseTree.btree=="fixed")
+		"-t fixed"
+    #end if
+
+	#if ($baseTree.btree=="bionj")
+		"-t BIONJ"
+    #end if
+
+	#if ($searchTree.stree=="spr")
+		"-S SPR"
+    #end if
+
+	#if ($searchTree.stree=="best")
+		"-S BEST"
+    #end if
+	
+	
+	</command>
+
+		<inputs>
+			<page>
+				<param format="fasta" name="input" type="data" label="Input alignment file"/>
+				<param name="outname" label="Name for output file" type="text" size="50" value="output" />
+				
+				<conditional name="numsubscheme">
+     				<param name="numSub" type="select" label="Number of substitution schemes">
+        				<option value="three" selected="True">3</option>
+        				<option value="five">5</option>
+        				<option value="seven">7</option>
+        				<option value="eleven">11</option>
+        				<option value="twohundredthree">203</option>
+
+      				</param>
+      				<when value="five" />
+      				<when value="seven" />
+      				<when value="eleven"/>
+      				<when value="twohundredthree">
+       				</when>
+    			</conditional>
+				
+				<conditional name="gammacat">
+     				<param name="ngcat" type="select" label="Include models with rate variation among sites">
+        				<option value="no" selected="True">No</option>
+        				<option value="yes">Yes</option>
+      				</param>
+			        <when value="yes">
+						<param name="cat" label="Number of categories" type="text" size="10" value="4"/>     
+       				</when>
+    			</conditional>
+
+				<conditional name="baseTree">
+     				<param name="btree" type="select" label="Base tree for likelihood calculations">
+        				<option value="fixed">Fixed, BIONJ-JC</option>
+        				<option value="bionj">BIONJ</option>
+        				<option value="ml" selected="True">ML</option>
+      				</param>
+      				<when value="fixed" />
+      				<when value="bionj">
+       				</when>
+    			</conditional>
+
+				<conditional name="searchTree">
+     				<param name="stree" type="select" label="Tree topology search operation option">
+        				<option value="nni" selected="True">NNI (fast)</option>
+        				<option value="spr">SPR (slower)</option>
+        				<option value="best">BEST (best of NNI and SPR)</option>
+      				</param>
+      				<when value="spr" />
+      				<when value="best">
+       				</when>
+    			</conditional>
+
+				<param name="baseFreq" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Include Models with unequal base frequencies</label>
+    			</param>
+				
+				<param name="prInSites" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Include Models with a proportion invariable sites</label>
+    			</param>
+
+				<param name="akaike" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Calculate the Akaike Information Criterion (AIC)</label>
+    			</param>
+
+				<param name="cakaike" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Calculate the corrected Akaike Information Criterion (AICc)</label>
+    			</param>
+
+				<param name="bayesian" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Calculate the Bayesian Information Criterion (BIC)</label>
+    			</param>
+
+				<param name="dt" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Calculate the Decision Theory Criterion (DT)</label>
+    			</param>
+
+				<param name="paraImp" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Calculate Parameter importances</label>
+    			</param>
+
+				<param name="avg" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Do model averaging and parameter impotances</label>
+    			</param>
+
+				<param name="paup" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Write PAUP block</label>
+    			</param>
+
+				<param name="dlrt" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Do dynamical likelihood ratio test</label>
+    			</param>
+
+				<param name="hlrt" type="boolean" checked="no" truevalue="1" falsevalue="2" display="checkboxes">
+        			<label>Do hierarchical likelihood ratio test</label>
+    			</param>
+
+			</page>
+		</inputs>
+
+		<outputs>
+			<data format="fasta" name="output"  label="${outname}_jModelTest.result"/>
+		</outputs>
+
+		<tests>
+			<test>
+				<param name="input" value="1.seq1.fas"/>
+				<output name="out_file1" file="out.tree"/>
+			</test>
+		</tests>
+	<help>
+
+**Note**
+
+jModelTest is a tool to carry out statistical selection of best-fit models of nucleotide substitution. 
+
+It implements five different model selection strategies: hierarchical and dynamical likelihood ratio tests (hLRT and dLRT), Akaike and Bayesian information criteria (AIC and BIC), and a decision theory method (DT).
+
+jModelTest 2 includes High Performance Computing (HPC) capabilities and additional features like new strategies for tree optimization, model-averaged phylogenetic trees (both topology and branch lenght), heuristic filtering and automatic logging of user activity.
+
+----
+
+**Attribution**
+
+To download jModelTest, learn about all the different options and to access its documentation visit jModelTest_
+
+.. _jModelTest: https://code.google.com/p/jmodeltest2/ 
+	
+	</help>
+</tool>

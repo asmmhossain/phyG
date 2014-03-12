@@ -1,0 +1,36 @@
+>A|ORF1 length 4 aa, 12 bp, from complement(1..12) of A
+ATATATCGGATT
+>A|ORF2 length 4 aa, 12 bp, from 1..12 of A
+AATCCGATATAT
+>A|ORF3 length 3 aa, 9 bp, from complement(2..10) of A
+ATATCGGAT
+>A|ORF4 length 3 aa, 9 bp, from 2..10 of A
+ATCCGATAT
+>A|ORF5 length 3 aa, 9 bp, from complement(3..11) of A
+TATATCGGA
+>A|ORF6 length 3 aa, 9 bp, from 3..11 of A
+TCCGATATA
+>B|ORF1 length 2 aa, 6 bp, from complement(1..6) of B
+GGCCTT
+>B|ORF2 length 3 aa, 9 bp, from 1..9 of B
+AAGGCCTTA
+>B|ORF3 length 2 aa, 6 bp, from complement(2..7) of B
+AGGCCT
+>B|ORF4 length 2 aa, 6 bp, from 2..7 of B
+AGGCCT
+>B|ORF5 length 2 aa, 6 bp, from complement(3..8) of B
+AAGGCC
+>B|ORF6 length 2 aa, 6 bp, from 3..8 of B
+GGCCTT
+>C|ORF1 length 3 aa, 9 bp, from complement(1..9) of C
+CAAGGCCTT
+>C|ORF2 length 3 aa, 9 bp, from 1..9 of C
+AAGGCCTTG
+>C|ORF3 length 2 aa, 6 bp, from complement(2..7) of C
+AGGCCT
+>C|ORF4 length 2 aa, 6 bp, from 2..7 of C
+AGGCCT
+>C|ORF5 length 2 aa, 6 bp, from complement(3..8) of C
+AAGGCC
+>C|ORF6 length 2 aa, 6 bp, from 3..8 of C
+GGCCTT

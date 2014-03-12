@@ -1,0 +1,36 @@
+>A|ORF1 length 4 aa, 12 bp, from complement(1..12) of A
+IYRI
+>A|ORF2 length 4 aa, 12 bp, from 1..12 of A
+NPIY
+>A|ORF3 length 3 aa, 9 bp, from complement(2..10) of A
+ISD
+>A|ORF4 length 3 aa, 9 bp, from 2..10 of A
+IRY
+>A|ORF5 length 3 aa, 9 bp, from complement(3..11) of A
+YIG
+>A|ORF6 length 3 aa, 9 bp, from 3..11 of A
+SDI
+>B|ORF1 length 2 aa, 6 bp, from complement(1..6) of B
+GL
+>B|ORF2 length 3 aa, 9 bp, from 1..9 of B
+KAL
+>B|ORF3 length 2 aa, 6 bp, from complement(2..7) of B
+RP
+>B|ORF4 length 2 aa, 6 bp, from 2..7 of B
+RP
+>B|ORF5 length 2 aa, 6 bp, from complement(3..8) of B
+KA
+>B|ORF6 length 2 aa, 6 bp, from 3..8 of B
+GL
+>C|ORF1 length 3 aa, 9 bp, from complement(1..9) of C
+QGL
+>C|ORF2 length 3 aa, 9 bp, from 1..9 of C
+KAL
+>C|ORF3 length 2 aa, 6 bp, from complement(2..7) of C
+RP
+>C|ORF4 length 2 aa, 6 bp, from 2..7 of C
+RP
+>C|ORF5 length 2 aa, 6 bp, from complement(3..8) of C
+KA
+>C|ORF6 length 2 aa, 6 bp, from 3..8 of C
+GL

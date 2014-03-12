@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<job_conf>
+    <plugins workers="4">
+        <!-- "workers" is the number of threads for the runner's work queue.
+             The default from <plugins> is used if not defined for a <plugin>.
+          -->
+        <plugin id="local" type="runner" load="galaxy.jobs.runners.local:LocalJobRunner"/>
+        <plugin id="pbs" type="runner" load="galaxy.jobs.runners.pbs:PBSJobRunner" workers="2"/>
+        <plugin id="drmaa" type="runner" load="galaxy.jobs.runners.drmaa:DRMAAJobRunner">
+            <!-- Different DRMs handle successfully completed jobs differently,
+                 these options can be changed to handle such differences and
+                 are explained in detail on the Galaxy wiki. Defaults are shown -->
+            <param id="invalidjobexception_state">ok</param>
+            <param id="invalidjobexception_retries">0</param>
+            <param id="internalexception_state">ok</param>
+            <param id="internalexception_retries">0</param>
+        </plugin>
+        <plugin id="sge" type="runner" load="galaxy.jobs.runners.drmaa:DRMAAJobRunner">
+            <!-- Override the $DRMAA_LIBRARY_PATH environment variable -->
+            <param id="drmaa_library_path">/sge/lib/libdrmaa.so</param>
+        </plugin>
+        <plugin id="lwr" type="runner" load="galaxy.jobs.runners.lwr:LwrJobRunner">
+          <!-- More information on LWR can be found at https://lwr.readthedocs.org -->
+          <!-- Uncomment following line to use libcurl to perform HTTP calls (defaults to urllib) -->
+          <!-- <param id="transport">curl</param> -->
+        </plugin>
+        <plugin id="cli" type="runner" load="galaxy.jobs.runners.cli:ShellJobRunner" />
+        <plugin id="condor" type="runner" load="galaxy.jobs.runners.condor:CondorJobRunner" />
+        <plugin id="slurm" type="runner" load="galaxy.jobs.runners.slurm:SlurmJobRunner" />
+    </plugins>
+    <handlers default="handlers">
+        <!-- Additional job handlers - the id should match the name of a
+             [server:<id>] in universe_wsgi.ini.
+         -->
+        <handler id="handler0" tags="handlers"/>
+        <handler id="handler1" tags="handlers"/>
+        <!-- Handlers will load all plugins defined in the <plugins> collection
+             above by default, but can be limited to a subset using <plugin>
+             tags. This is useful for heterogenous environments where the DRMAA
+             plugin would need to be loaded more than once with different
+             configs.
+         -->
+        <handler id="sge_handler">
+            <plugin id="sge"/>
+        </handler>
+        <handler id="special_handler0" tags="special_handlers"/>
+        <handler id="special_handler1" tags="special_handlers"/>
+        <handler id="trackster_handler"/>
+    </handlers>
+    <destinations default="local">
+        <!-- Destinations define details about remote resources and how jobs
+             should be executed on those remote resources.
+         -->
+        <destination id="local" runner="local"/>
+        <destination id="pbs" runner="pbs" tags="mycluster"/>
+        <destination id="pbs_longjobs" runner="pbs" tags="mycluster,longjobs">
+            <!-- Define parameters that are native to the job runner plugin. -->
+            <param id="Resource_List">walltime=72:00:00</param>
+        </destination>
+        <destination id="remote_cluster" runner="drmaa" tags="longjobs"/>
+        <destination id="real_user_cluster" runner="drmaa">
+            <!-- TODO: The real user options should maybe not be considered runner params. -->
+            <param id="galaxy_external_runjob_script">scripts/drmaa_external_runner.py</param>
+            <param id="galaxy_external_killjob_script">scripts/drmaa_external_killer.py</param>
+            <param id="galaxy_external_chown_script">scripts/external_chown_script.py</param>
+        </destination>
+        <destination id="dynamic" runner="dynamic">
+            <!-- A destination that represents a method in the dynamic runner. -->
+            <param id="function">foo</param>
+        </destination>
+        <destination id="secure_lwr" runner="lwr">
+            <param id="url">https://windowshost.examle.com:8913/</param>
+            <!-- If set, private_token must match token remote LWR server configured with. -->
+            <param id="private_token">123456789changeme</param>
+            <!-- Uncomment the following statement to disable file staging (e.g.
+                 if there is a shared file system between Galaxy and the LWR 
+                 server). Alternatively action can be set to 'copy' - to replace 
+                 http transfers with file system copies. -->
+            <!-- <param id="default_file_action">none</param> -->
+            <!-- The above option is just the default, the transfer behavior
+                 none|copy|http can be configured on a per path basis via the
+                 following file. See lib/galaxy/jobs/runners/lwr_client/action_mapper.py
+                 for examples of how to configure this file. This is very beta
+                 and nature of file will likely change.
+            -->
+            <!-- <param id="file_action_config">file_actions.json</param> -->
+            <!-- Uncomment following option to disable Galaxy tool dependency
+                 resolution and utilize remote LWR's configuraiton of tool
+                 dependency resolution instead (same options as Galaxy for
+                 dependency resolution are available in LWR).
+            -->
+            <!-- <param id="dependency_resolution">remote</params> -->
+            <!-- Uncomment following option to enable setting metadata on remote
+                 LWR server. The 'use_remote_datatypes' option is available for
+                 determining whether to use remotely configured datatypes or local
+                 ones (both alternatives are a little brittle). -->
+            <!-- <param id="remote_metadata">true</param> -->
+            <!-- <param id="use_remote_datatypes">false</param> -->
+            <!-- If remote LWR server is configured to run jobs as the real user,
+                 uncomment the following line to pass the current Galaxy user
+                 along. -->
+            <!-- <param id="submit_user">$__user_name__</param> -->
+            <!-- Various other submission parameters can be passed along to the LWR
+                 whose use will depend on the remote LWR's configured job manager.
+                 For instance:
+            -->
+            <!-- <param id="submit_native_specification">-P bignodes -R y -pe threads 8</param> -->            
+        </destination>
+        <destination id="ssh_torque" runner="cli">
+            <param id="shell_plugin">SecureShell</param>
+            <param id="job_plugin">Torque</param>
+            <param id="shell_username">foo</param>
+            <param id="shell_hostname">foo.example.org</param>
+            <param id="job_Resource_List">walltime=24:00:00,ncpus=4</param>
+        </destination>
+        <destination id="condor" runner="condor">
+            <!-- With no params, jobs are submitted to the 'vanilla' universe with:
+                    notification = NEVER
+                    getenv = true
+                 Additional/override query ClassAd params can be specified with
+                 <param> tags.
+            -->
+            <param id="request_cpus">8</param>
+        </destination>
+    </destinations>
+    <tools>
+        <!-- Tools can be configured to use specific destinations or handlers,
+             identified by either the "id" or "tags" attribute.  If assigned to
+             a tag, a handler or destination that matches that tag will be
+             chosen at random.
+         -->
+        <tool id="foo" handler="trackster_handler">
+            <param id="source">trackster</param>
+        </tool>
+        <tool id="bar" destination="dynamic"/>
+        <tool id="baz" handler="special_handlers" destination="bigmem"/>
+    </tools>
+    <limits>
+        <!-- Certain limits can be defined. -->
+        <limit type="registered_user_concurrent_jobs">2</limit>
+        <limit type="unregistered_user_concurrent_jobs">1</limit>
+        <limit type="job_walltime">24:00:00</limit>
+        <limit type="concurrent_jobs" id="local">1</limit>
+        <limit type="concurrent_jobs" tag="mycluster">2</limit>
+        <limit type="concurrent_jobs" tag="longjobs">1</limit>
+    </limits>
+</job_conf>

@@ -1,0 +1,36 @@
+<tool id="tn93" name="TN93" version="">
+	<description>Compute Tamura Nei 93 (TN93) distances between aligned sequences</description>
+	<command interpreter="python"> tn93.py -l $log -t "0.5" -o $output -i $input 
+
+	</command>
+		<inputs>
+			<page>
+				<param format="fasta" name="input" type="data" label="Input alignment file"/>
+    			<param name="outname" label="Pairwise distance output file name" type="text" size="50" value="output" />
+
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="csv" name="output"  label="${outname}_tn93.csv"/> 
+			<data format="txt" name="log"  label="${outname}_tn93.log"/> 
+
+		</outputs>
+			
+	<help>
+
+**Note**
+
+This is a simple program meant to compute pairwise distances between aligned nucleotide sequences in sequential FASTA format using TN93.
+
+----
+
+**Attribution**
+
+The program is written by Sergei Pond and is available from his GitHub page TN93_
+
+.. _TN93: https://github.com/spond/TN93 
+
+	</help>
+</tool>

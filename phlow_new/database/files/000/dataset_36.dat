@@ -1,0 +1,39 @@
+================================================================
+Program: CD-HIT, V4.5.4, Feb 19 2014, 12:02:50
+Command:
+         /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/dependencies/cd-hit-v4.5.4-2011-03-07/cd-hit
+         -c 0.5 -n 2 -i
+         /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_7.dat
+         -o
+         /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_35.dat
+
+Started: Wed Feb 19 14:11:33 2014
+================================================================
+                            Output                              
+----------------------------------------------------------------
+total seq: 8
+longest and shortest : 416 and 396
+Total letters: 3236
+Sequences have been sorted
+
+Approximated minimal memory consumption:
+Sequence        : 0M
+Buffer          : 1 X 10M = 10M
+Table           : 1 X 0M = 0M
+Miscellaneous   : 0M
+Total           : 10M
+
+Table limit with the given memory limit:
+Max number of representatives: 4194304
+Max number of word counting entries: 98676324
+
+comparing sequences from          0  to          8
+
+        8  finished          1  clusters
+
+Apprixmated maximum memory consumption: 10M
+writing new database
+writing clustering information
+program completed !
+
+Total CPU time 0

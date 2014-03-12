@@ -1,0 +1,2 @@
+running the following java command:
+java -server -Xmx2G -jar /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/dependencies/ninja_1.2.1/Ninja.jar --in_type a -i /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_11.dat --out_type d -o /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_29.dat

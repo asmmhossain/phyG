@@ -1,0 +1,28 @@
+#!/usr/bin/env Rscript
+
+options(warn=1)
+
+
+
+setwd("~/Documents/20xii12/blen/")
+
+msam<-c("phy","calo","calw","fft","linsi","fsa","muscle","prank.2.fas","pc")
+
+X<- c(0.0384615,0.0769231,0.115385,0.153846,0.192308,0.230769,0.269231,0.307692,0.346154,0.384615,0.423077,0.461538)
+
+#i<-1
+#j<-1
+for(i in 1:1) 
+{
+  for(j in 1:1) 
+  {
+    name<-paste(j,".",msam[i],".blen",sep="")
+    y<-read.table(name)
+    z<-X[j]-y
+    
+    name<-paste(j,".",msam[i],".diff",sep="")
+    write(as.matrix(z),name,sep="\t")
+    #print(z)
+  }
+  
+}

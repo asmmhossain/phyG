@@ -1,0 +1,35 @@
+[MPI] Testing MPI environment... (mukarram-All-Series)
+[MPI] Proceed without MPI
+------------------------------- jModeltest 2.1.4 -------------------------------
+(c) 2011-onwards D. Darriba, G.L. Taboada, R. Doallo and D. Posada,
+(1) Department of Biochemistry, Genetics and Immunology
+    University of Vigo, 36310 Vigo, Spain.
+(2) Department of Electronics and Systems
+    University of A Coruna, 15071 A Coruna, Spain.
+e-mail: ddarriba@udc.es, dposada@uvigo.es
+--------------------------------------------------------------------------------
+ 
+Wed Feb 19 14:00:26 GMT 2014
+Linux 3.11.0-15-generic, arch: amd64, bits: 64, numcores: 8
+ 
+--------------------------------------------------------------------------------
+Citation: Darriba D, Taboada GL, Doallo R and Posada D. 2012.
+          "jModelTest 2: more models, new heuristics and parallel computing".
+          Nature Methods 9(8), 772.
+--------------------------------------------------------------------------------
+ 
+jModelTest 2.1.4
+Copyright (C) 2011 D. Darriba, G.L. Taboada, R. Doallo and D. Posada
+This program comes with ABSOLUTELY NO WARRANTY
+This is free software, and you are welcome to redistribute it under certain conditions
+ 
+Notice: This program may contain errors. Please inspect results carefully.
+ 
+ 
+Arguments = -d /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_20.dat -s 3
+
+Reading data file "dataset_20.dat"...
+The specified file "/home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_20.dat" cannot be read as an alignment
+ failed.
+
+Invalid input file: Alignment: /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/files/000/dataset_20.dat

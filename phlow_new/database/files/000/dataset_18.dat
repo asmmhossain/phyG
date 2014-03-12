@@ -1,0 +1,11 @@
+	A     	The_Standard_Code
+java.lang.Exception: Error during translation of CODON AGL using Genetic code The_Standard_Code
+Please replace resources folder with the original resource folder or check file /home/mukarram/Desktop/galaxy-galaxy-dist-29ce93a13ac7/database/job_working_directory/000/15/resources/genetic_code/The_Standard_Code
+	at bioObject.Ribosome.translateInt(Ribosome.java:271)
+	at bioObject.CodingDnaSeq.init(CodingDnaSeq.java:160)
+	at bioObject.CodingDnaSeq.<init>(CodingDnaSeq.java:476)
+	at bioObject.CodingDnaSeq.readFasta(CodingDnaSeq.java:558)
+	at bioObject.CodingDnaSeq.readFasta(CodingDnaSeq.java:532)
+	at utils.AlignmentParameterWrappers.<init>(AlignmentParameterWrappers.java:181)
+	at utils.MacseMain.main(MacseMain.java:348)
+pb with translation of A      site:14
