@@ -45,6 +45,11 @@
     <tool file="Newick_utils/newick_utils.xml" />	
   </section>
 
+  <section name="SCUEAL" id="scueal">
+    <tool file="scueal/scueal_screening.xml" />	
+  </section>
+
+
   <section name="EMBOSS" id="emboss">
     <tool file="emboss_5/emboss_5/emboss_antigenic.xml" />	
     <tool file="emboss_5/emboss_5/emboss_backtranseq.xml" />	

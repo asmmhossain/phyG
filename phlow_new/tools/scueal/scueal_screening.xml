@@ -1,0 +1,141 @@
+<tool id="scueal" name="SCUEAL-Screening" version="">
+	<description>Subtype Classificaton by Evolutionary ALgorithms</description>
+	<command interpreter="python"> scueal_screening.py -i $input -o $output -g "1" -l $log
+
+	#if ($refAln.ref=="pol")
+		-r "pol2011.nex"
+	#end if
+
+	#if ($refAln.ref=="env")
+		-r "env_seed.nex"
+	#end if
+
+	#if ($refAln.ref=="gag")
+		-r "gag_seed.nex"
+	#end if
+
+	#if ($refAln.ref=="hcv")
+		-r "NS5B.nex"
+	#end if
+
+	#if ($alnType.aln=="1")
+		-t "1"
+	#end if
+
+	#if ($alnType.aln=="2")
+		-t "2"
+	#end if
+
+	#if ($alnType.aln=="3")
+		-t "3"
+	#end if
+
+	#if ($refAln.reft=="1")
+		-r "other.nex" -q "1"
+	#end if
+
+	#if ($refAln.reft=="2")
+		-r "other.nex" -q "2"
+	#end if
+
+	-s $refaln
+
+ 
+	</command>
+
+		<inputs>
+			<page>
+				<conditional name="refAln">
+					<param name="ref" type="select" label="Reference alignment">
+						<option value="pol" selected="True"> HIV screening using pol region</option>
+						<option value="env"> HIV screening using env region</option>
+						<option value="gag"> HIV screening using gag region</option>
+						<option value="hcv"> HCV screening</option>
+						<option value="other"> Other reference</option>
+					</param>
+					<when value="pol" />
+					<when value="env" />
+					<when value="gag" />
+					<when value="hcv" />
+					<when value="other">
+						<param name="reft" type="select" label="Reference alignment type">
+							<option value="1" selected="True"> In-frame (universal code) codon alignment</option>
+							<option value="2"> Nucleotide alignment</option>
+						</param>
+						<param format="fasta" name="refaln" type="data" label="Reference alignment file with type"/>
+					</when>
+
+				</conditional>
+
+				<conditional name="alnType">
+					<param name="aln" type="select" label="Input alignment type">
+						<option value="1" selected="True"> In-frame (universal code) codon alignment</option>
+						<option value="2"> Nucleotide alignment</option>
+						<option value="3"> Directly align codons (good for frameshift detection)</option>
+					</param>
+					<when value="1" />
+					<when value="2" />
+					<when value="3" />
+				</conditional>
+
+				<param format="fasta" name="input" type="data" label="Input alignment file for screening"/>
+				<param name="outname" label="Output file name" type="text" size="50" value=""/>
+
+ 			</page>
+		</inputs>
+
+		<outputs>
+			<data format="txt" name="output" label="${outname}_scueal.txt"/>
+			<data format="txt" name="log" label="scueal_screening.log"/>
+		</outputs>
+
+	<help>
+
+**Note**
+
+This tool allows you to screen virus sequences for subtypes based on a reference alignment. Users can select the reference alignment based on the virus (e.g. HIV, HCV etc) from a drop down list or can provide a reference alignment themselves. The reference alignment should have the types annotated at the sequence headers. Example of a reference alignment for HIV pol sequences annotated with their type A1, A2 and G is:
+
+----
+
+>AF004885_A1
+
+TTTTTTAGGGAAAATTTGGCCTTCC...GAT---
+
+>AF286238_A2
+
+TTTTTTAGGGAAAATTTGTCCTTCC...GAT---
+
+.
+
+.
+
+.
+
+>AF084936_G
+
+TTTTTTAGGGAAAGTTTGGCCTTCC...GAT---
+
+----
+
+SCUEAL's MakeReferenceAlignment.bf is called first with the user provided reference alignment to generate the labels for subtyping. Then the newly created reference file is used to assign types for the sequence file. A summary containing all the type assignments is written as output after SCUEAL executes.
+
+
+
+**Attribution**
+
+SCUEAL requires a version of HYPHY to be present for the batch files to run. Both HYPHY and SCUEAL installers are included in the dependencies directory. Users need to compile HYPHY with MPI functionality. A modified version of SCUEAL is used in this tool to allow user specified reference alignment.
+
+HYPHY can be collected from hyphy_   
+
+Original distribution of SCUEAL can be found in scueal_
+
+.. _hyphy: https://github.com/veg/hyphy/tree/master
+
+.. _scueal: https://github.com/spond/SCUEAL/
+
+
+	</help>
+</tool>
+	
+					
+
