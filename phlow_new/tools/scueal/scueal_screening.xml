@@ -30,16 +30,20 @@
 		-t "3"
 	#end if
 
-	#if ($refAln.reft=="1")
-		-r "other.nex" -q "1"
+	#if ($refAln.ref=="other")
+		#if ($refAln.reft=="1")
+			-r "other.nex" -q "1"
+		#end if
+
+		#if ($refAln.reft=="2")
+			-r "other.nex" -q "2"
+		#end if
+
+		-s $refaln
+
 	#end if
-
-	#if ($refAln.reft=="2")
-		-r "other.nex" -q "2"
-	#end if
-
-	-s $refaln
-
+	
+	
  
 	</command>
 
