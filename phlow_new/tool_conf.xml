@@ -61,7 +61,7 @@
     <tool file="emboss_5/emboss_5/emboss_chaos.xml" />	
     <tool file="emboss_5/emboss_5/emboss_charge.xml" />	
     <tool file="emboss_5/emboss_5/emboss_checktrans.xml" />	
-    <tool file="emboss_5/emboss_5/emboss_ships.xml" />	
+    <tool file="emboss_5/emboss_5/emboss_chips.xml" />	
     <tool file="emboss_5/emboss_5/emboss_cirdna.xml" />	
     <tool file="emboss_5/emboss_5/emboss_codcmp.xml" />	
     <tool file="emboss_5/emboss_5/emboss_coderet.xml" />	
