@@ -51,6 +51,7 @@
 
   <section name="Make reference alignment" id="mra">
     <tool file="refAln/extractSeq.xml" />	
+    <tool file="refAln/splitFile.xml" />	
   </section>
 
 
