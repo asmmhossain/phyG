@@ -1,0 +1,51 @@
+<tool id="makeSeqFile" name="makeSeqFile" version="1.0">
+	<description>Generates fasta formatted sequence file with accessions as headers</description>
+	<command interpreter="python">
+	extractSeq.py -i $input -l $log -o $output
+
+	#if ($fileType.type=="fasta")
+		-t "fasta"
+	#end if
+
+	#if ($fileType.type=="insdseq")
+		-t "gbc"
+	#end if
+
+	</command>
+		<inputs>
+			<page>
+				<conditional name="fileType">
+     				<param name="type" type="select" label="Input sequence file type">
+        				<option value="fasta" selected="True">Fasta formatted file</option>
+        				<option value="insdseq">INSDSeq XML formatted file</option>
+      			</param>
+      			<when value="fasta" />
+      			<when value="insdseq">
+       			</when>
+    		</conditional>
+
+				<param format="txt" name="input" type="data" label="Input sequence file"/>
+			</page>
+		</inputs>
+
+		<outputs>
+			<data format="fasta" name="output"  label="sequences.fasta"/>
+			<data format="txt" name="log" from_work_dir="log" label="log">
+      	<filter>(fileType['type'] == 'insdseq')</filter>
+			</data>
+			<data format="txt" name="ann" from_work_dir="seqAnnotate.json"  label="Annotations">
+      	<filter>(fileType['type'] == 'insdseq')</filter>
+			</data>
+
+		</outputs>
+
+	<help>
+
+**Note**
+
+This tool accepts two types of input sequence files from the user: INSDSeq XML formatted file (extension .gbc.xml) and Fasta formatted file with detailed header both generated from GenBank. For XML file, three output files are reported on successful execution of the tool: i) a fasta formatted sequence file with accession numbers as headers, ii) a json formatted file containing all the annotations associated with the sequences present in the XML file and iii) a log file reporting the progress and/or errors during the execution of the tool. For Fasta file, the output is a Fasta formatted sequence file where accession numbers are extrcated from the long headers and used as headers.  
+
+
+	</help>
+</tool>
+

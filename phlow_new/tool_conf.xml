@@ -49,6 +49,10 @@
     <tool file="scueal/scueal_screening.xml" />	
   </section>
 
+  <section name="Make reference alignment" id="mra">
+    <tool file="refAln/extractSeq.xml" />	
+  </section>
+
 
   <section name="EMBOSS" id="emboss">
     <tool file="emboss_5/emboss_5/emboss_antigenic.xml" />	
@@ -147,5 +151,6 @@
     <tool file="emboss_5/emboss_5/emboss_wordmatch.xml" />	
 
   </section>
+
 
 </toolbox>
