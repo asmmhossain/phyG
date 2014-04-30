@@ -43,29 +43,35 @@ class splitFile:
     frags = []
 
     for seq in seqs:
-      if thr < len(seq.seq):
-        combs.append(seq)
-      else:
-        frags.append(seq)
+      sLen = len(seq.seq)
+      nLen = seq.seq.count('N')
+      if sLen is not 0:
+        nRat = float(nLen)/sLen
+        if nRat < float(self.opts.nPer):
+          if thr < len(seq.seq):
+            combs.append(seq)
+          else:
+            frags.append(seq)
 
     #print(len(combs))
     #print(len(frags))
 
-    SeqIO.write(combs,self.opts.combined,'fasta')
+    SeqIO.write(combs,self.opts.full,'fasta')
     SeqIO.write(frags,self.opts.fragment,'fasta')
 
 
 
 if __name__ == "__main__":
   op = optparse.OptionParser()
-  op.add_option('-i','--input',default=None,help='Input sequence file')
-  op.add_option('-f','--fragment',default=None,help='Fragment sequences file')
+  op.add_option('-i','--input',default='sequences.fasta',help='Input sequence file')
+  op.add_option('-f','--fragment',default='frag.fasta',help='Fragment sequences file')
 #  op.add_option('-n','--long',default=None,help='Long sequences file')
-#  op.add_option('-u','--full',default=None,help='full sequences file')
+  op.add_option('-u','--full',default='full.fasta',help='full sequences file')
 #  op.add_option('-r','--reference',default=None,help='References sequences file')
-  op.add_option('-c','--combined',default=None,help='combined sequences file')
-  op.add_option('-l','--log',default='log',help='Log file')
-  op.add_option('-p','--per',default=None,help='Threshold for fragments')
+  #op.add_option('-c','--combined',default='combined.fasta',help='combined sequences file')
+  op.add_option('-l','--log',default='splitFile.log',help='Log file')
+  op.add_option('-p','--per',default='50',help='Threshold for fragments')
+  op.add_option('-n','--nPer',default='0.1',help='Percentage of Ns to remove sequence')
 
   opts, args = op.parse_args()
   assert opts.input <> None

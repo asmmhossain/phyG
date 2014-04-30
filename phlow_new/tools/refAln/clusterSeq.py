@@ -16,6 +16,9 @@ class clusterSeq:
   def __init__(self,opts=None):
     self.opts = opts
     self.err = open(self.opts.log,'w')
+    if not os.path.exists('clusters'):
+      os.makedirs('clusters')
+
 
 #********************************************
   def run(self):
@@ -31,7 +34,7 @@ class clusterSeq:
 
 #********************************************
   def makeFile(self):
-    seqs = list(SeqIO.parse('combined.fasta','fasta'))
+    seqs = list(SeqIO.parse(self.opts.input,'fasta'))
 
     lines = [line.strip('\n') for line in open('temp.clstr','r')]
     #print(len(seqs))
@@ -57,6 +60,9 @@ class clusterSeq:
           #print(len(temp))
           cls = cls + 1
           SeqIO.write(temp,fname,'fasta')
+          dest = 'clusters/' + fname
+          shutil.move(fname,dest)
+
           temp = []
       else:
         name = line.split()[2].replace('>','').replace('.','')
@@ -68,34 +74,68 @@ class clusterSeq:
     #print(fname)
     #print(len(temp))
     SeqIO.write(temp,fname,'fasta')
+    dest = 'clusters/' + fname
+    shutil.move(fname,dest)
+
     return cls
 
+#************************************************
+
+  def writeCluster(self):
+
+    flag = 0
+    st = ''
+    cls = 0
+    
+    lines = [line.strip('\n') for line in open('temp.clstr','r')]
+    for line in lines:
+      if 'Cluster' in line:
+        if flag == 0:
+          flag = 1
+        else:
+          cls = cls + 1		        
+      else:
+        name = line.split()[2].replace('>','').replace('.','')
+        st += name + '\t' + `cls` + '\n'
+
+    fileOut = open('clusterList.txt','w')
+    fileOut.write(st)
+    fileOut.close()
+           
 #**********************************************
   def removeRedundant(self,nc=-1):
     file_path = os.path.dirname(os.path.abspath(__file__)) 
     dir_path = file_path[:file_path.rfind("tools")]
-
+    #print(nc)
     for i in xrange(nc):
       cl = []
-      cl.append('%sdependencies/cd-hit-v4.5.4-2011-03-07/cd-hit-est -c 0.99 -n 10 -i cluster_%d.fasta -o reduced_cluster_%d' % (dir_path,i,i))
+      cl.append('%sdependencies/cd-hit-v4.5.4-2011-03-07/cd-hit-est -c 0.99 -n 10 -i clusters/cluster_%d.fasta -o clusters/reduced_cluster_%d.fasta' % (dir_path,i,i))
       #print(cl)
 
       process = subprocess.Popen(''.join(cl), shell=True, stderr=self.err, stdout=self.err)
       rval = process.wait()            
+      
+
 
 #**********************************************      
 if __name__ == "__main__":
   op = optparse.OptionParser()
-  op.add_option('-i','--input',default=None,help='Input sequence file')
-  op.add_option('-l','--log',default='log',help='Log file')
+  op.add_option('-i','--input',default='full.fasta',help='Input sequence file')
+  #op.add_option('-c','--input',default=None,help='Input sequence file')
+  op.add_option('-l','--log',default='clusterSeq.log',help='Log file')
 
   opts, args = op.parse_args()
   assert opts.input <> None
 
   c = clusterSeq(opts)
-  #c.run() 
+  c.run() 
   nc = c.makeFile()
+  fh = open('control.txt','w')
+  st = 'Total cluster = ' + `nc`
+  fh.write(st)
+  fh.close()
   ##print(nc)
   #nc = 19
   c.removeRedundant(nc+1)
+  c.writeCluster()
 

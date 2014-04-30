@@ -86,9 +86,9 @@ class extractSeq:
 if __name__ == "__main__":
   op = optparse.OptionParser()
   op.add_option('-i','--input',default=None,help='Input sequence file')
-  op.add_option('-o','--output',default=None,help='Output sequence file')
+  op.add_option('-o','--output',default='sequences.fasta',help='Output sequence file')
   op.add_option('-t','--inType',default='fasta',help='Input file type: genbank/fasta')
-  op.add_option('-l','--log',default='log',help='Log file')
+  op.add_option('-l','--log',default='extractSeq.log',help='Log file')
 
   opts, args = op.parse_args()
   assert opts.input <> None
