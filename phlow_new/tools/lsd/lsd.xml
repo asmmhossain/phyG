@@ -1,0 +1,45 @@
+<tool id="lsd" name="LSD" version="0.1">
+	<description>LSD(least-square dating) program containing the LD and QPD algorithms</description>
+	<command interpreter="python"> lsd.py -i $inTree -d $inDate -o $output -l $log -t $dt -n $nx -b $brl
+
+
+	</command>
+
+		<inputs>
+			<page>
+				<param format="txt" name="inTree" type="data" label="Input tree file"/>
+				<param format="txt" name="inDate" type="data" label="Input date file"/>
+				
+				<param name="outname" label="Name for output file" type="text" size="50" value="results" />
+
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="txt" name="output"  label="${outname}.txt"/>
+			<data format="txt" name="log"  label="${outname}_lsd.log"/>
+			
+			<data format="txt" name="dt"  label="${outname}_newick_date.txt"/>
+			<data format="txt" name="nx"  label="${outname}_nexus.txt"/>
+			<data format="txt" name="brl"  label="${outname}_newick_brl.txt"/>
+			
+			
+		</outputs>
+			
+	<help>
+
+**Note**
+
+LSD (least-square dating) program contains very fast dating algorithms, based on a normal approximation of the langley-Fitch molecular clock model.These algorithms apply to serial data, where the tips of the tree are dated, and could be extended to trees with time calibration points. These algorithms estimate the substitution rate and the dates of all ancestral nodes. When the input tree is unrooted, they provide an estimate for the root position.  
+
+----
+
+**Attribution**
+
+To download LSD, learn about all the different command line options and to access its documentation visit LSD_
+
+.. _LSD: http://www.atgc-montpellier.fr/LSD/ 
+
+	</help>
+</tool>
