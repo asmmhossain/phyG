@@ -1,0 +1,66 @@
+<tool id="rtt" name="APE-rtt()" version="3.1-4">
+	<description>rtt() roots a phylogenetic tree with dated tips</description>
+	<command interpreter="python"> rtt.py -i $inTree -j $obj.objT -o $output -l $log
+<!--	
+	#if (tol.bl == "default")
+	  -t "-1"
+	
+	#if (tol.bl == "user")
+	  -t $tol.optTol
+-->
+	</command>
+
+		<inputs>
+			<page>
+				<param format="txt" name="inTree" type="data" label="Input tree file"/>
+
+        <conditional name="obj">
+          <param name="objT" type="select" label="Objective function">
+            <option value="correlation" selected="True">Correlation</option>
+            <option value="rms">rms</option>
+            <option value="rsquared">rsquared</option>
+          </param>
+          <when value="cor"/>
+          <when value="rms"/>
+          <when value="rsq"/>
+            
+        </conditional>				
+				
+				<param name="outname" label="Name for output file" type="text" size="50" value="output" />
+
+			</page>
+
+		</inputs>
+
+		<outputs>
+			<data format="txt" name="output"  label="${outname}.tree"/>
+			<data format="txt" name="log"  label="${outname}_rtt.log"/>			
+		</outputs>
+			
+	<help>
+
+**Note**
+
+This function roots a phylogenetic tree with dated tips in the location most compatible with the
+assumption of a strict molecular clock. This function duplicates one part the functionality of the program Path-O-Gen. The
+root position is chosen to produce the best linear regression of root-to-tip distances against sampling
+times. 
+
+The tree must have branch lengths in units of expected substitutions per site.
+
+Tip labels of the tree must have the sampling dates included and must have the format: *tipLabel_date*. An example of a tree file with tip date is given below:
+
+(t3_0.44046295:0.7279116751,((t5_0.21754732:0.9281002048,t1_0.35639198:0.4995922018):0.8161865498,(t2_1.98383383:0.9336150922,t4_0.78398177:0.5511122982):0.2596149147):0.5416921624)
+
+Objective is the measure which will be used to define the “goodness” of a regression fit. It may
+be one of "correlation"(strongest correlation between tip date and distance from root), "rms" (lowest root-mean-squared error), or
+"rsquared" (highest R-squared value).
+
+----
+
+**Attribution**
+
+the R function rtt() is included in the package *ape* from release 3.1-3. 
+
+	</help>
+</tool>
