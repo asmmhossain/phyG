@@ -1068,9 +1068,9 @@ class gitsubrepo(abstractsubrepo):
         branches = rev2branch[revision]
         firstlocalbranch = None
         for b in branches:
-            if b == 'refs/heads/master':
-                # master trumps all other branches
-                checkout(['refs/heads/master'])
+            if b == 'refs/heads/main':
+                # main trumps all other branches
+                checkout(['refs/heads/main'])
                 return
             if not firstlocalbranch and not b.startswith('refs/remotes/'):
                 firstlocalbranch = b

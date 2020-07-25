@@ -60,7 +60,7 @@ def rebase(ui, repo, **opts):
 
     Rebase uses repeated merging to graft changesets from one part of
     history (the source) onto another (the destination). This can be
-    useful for linearizing *local* changes relative to a master
+    useful for linearizing *local* changes relative to a main
     development tree.
 
     You should not rebase changesets that have already been shared

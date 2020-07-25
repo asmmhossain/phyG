@@ -28,7 +28,7 @@ def __main__():
     parser = optparse.OptionParser()
     parser.add_option( '-j', '--jar', dest='jar', action='store', type="string", help='Location of JAR file' )
     parser.add_option( '-i', '--infile', dest='infile', action='store', type="string", help='infile' )
-    parser.add_option( '-m', '--master_variable', dest='master_variable', action='store', type="string", help='master_variable' )
+    parser.add_option( '-m', '--main_variable', dest='main_variable', action='store', type="string", help='main_variable' )
     parser.add_option( '-v', '--cv', dest='cv', action='store', type="string", help='cv' )
     parser.add_option( '-e', '--exp', dest='exp', action='store', type="string", help='exp' )
     parser.add_option( '-c', '--c', dest='c', action='store', type="string", help='c' )
@@ -48,7 +48,7 @@ def __main__():
     
     os.symlink( options.infile, tmp_input_name )
     
-    cmd = 'java -jar "%s" "%s" %s -cv%s -exp%s -c%s %s "%s"' % ( options.jar, tmp_input_name, options.master_variable, options.cv, options.exp, options.c, permute, JOB_ID )
+    cmd = 'java -jar "%s" "%s" %s -cv%s -exp%s -c%s %s "%s"' % ( options.jar, tmp_input_name, options.main_variable, options.cv, options.exp, options.c, permute, JOB_ID )
     print cmd
     
     #set up stdout and stderr output options

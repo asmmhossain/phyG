@@ -81,7 +81,7 @@ def main():
     
     #run R to create pdf from model script
     if os.path.exists( os.path.join( tmp_dir, "%s_model.r" % experiment_name ) ):
-        cmdline = 'R --vanilla --slave < "%s_model.r" > "%s_model.r.log"' % ( experiment_name, experiment_name )
+        cmdline = 'R --vanilla --subordinate < "%s_model.r" > "%s_model.r.log"' % ( experiment_name, experiment_name )
         proc = subprocess.Popen( args=cmdline, shell=True, cwd=tmp_dir )
         proc.wait()
     

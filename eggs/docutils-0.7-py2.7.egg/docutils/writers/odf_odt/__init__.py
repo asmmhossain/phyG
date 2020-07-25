@@ -884,15 +884,15 @@ class ODFTranslator(nodes.GenericNodeVisitor):
     def add_header_footer(self, root_el):
         automatic_styles = root_el.find(
             '{%s}automatic-styles' % SNSD['office'])
-        path = '{%s}master-styles' % (NAME_SPACE_1, )
-        master_el = root_el.find(path)
-        if master_el is None:
+        path = '{%s}main-styles' % (NAME_SPACE_1, )
+        main_el = root_el.find(path)
+        if main_el is None:
             return
-        path = '{%s}master-page' % (SNSD['style'], )
-        master_el = master_el.find(path)
-        if master_el is None:
+        path = '{%s}main-page' % (SNSD['style'], )
+        main_el = main_el.find(path)
+        if main_el is None:
             return
-        el1 = master_el
+        el1 = main_el
         if self.header_content or self.settings.custom_header:
             if WhichElementTree == 'lxml':
                 el2 = SubElement(el1, 'style:header', nsdict=SNSD)
