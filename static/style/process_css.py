@@ -226,12 +226,12 @@ class CSSProcessor( object ):
                 sw, sh = sprite.image.size
                 w = max( w, sw )
                 h += sh + pad
-            master = Image.new( mode='RGBA', size=(w, h), color=(0,0,0,0) )
+            main = Image.new( mode='RGBA', size=(w, h), color=(0,0,0,0) )
             offset = 0
             for sprite in group.sprites.itervalues():
-                master.paste( sprite.image, (0,offset) )
+                main.paste( sprite.image, (0,offset) )
                 offset += sprite.image.size[1] + pad
-            master.save( os.path.join( out_dir, group.name + ".png" ) )
+            main.save( os.path.join( out_dir, group.name + ".png" ) )
             
     def print_rules( self, rules, file ):
         for selectors, properties in rules:
